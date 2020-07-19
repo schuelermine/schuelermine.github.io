@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(22, 22, 22);
+    color: white;
+}
+
+a:hover {
+    color: yellow;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 10em 100%;
+}
+
+.site-title {
+    text-align: center;
+}
+
+
+.debug-medium-white-border {
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+}
