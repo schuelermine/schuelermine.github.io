@@ -1,25 +1,23 @@
 body {
-    background-color: rgb(22, 22, 22);
+    background-color: black;
     color: white;
 }
 
-a:hover {
+a {
     color: yellow;
+    text-decoration: none;
 }
 
-.main-grid {
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 10em 100%;
+a:hover {
+    text-decoration: white underline;
+    text-decoration-skip-ink: all;
 }
 
-.site-title {
-    text-align: center;
+.navigation {
+    font-size: large;
+    width: 100%
 }
 
-
-.debug-medium-white-border {
-    border-style: solid;
-    border-color: white;
-    border-width: 3px;
+.navigation a {
+    color: white;
 }
