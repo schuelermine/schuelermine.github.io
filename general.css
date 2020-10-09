@@ -1,6 +1,7 @@
 body {
     background-color: black;
     color: white;
+    display: grid;
 }
 
 a {
@@ -15,7 +16,7 @@ a:hover {
 
 .navigation {
     font-size: large;
-    width: 100%
+    display: grid;
 }
 
 .navigation a {
