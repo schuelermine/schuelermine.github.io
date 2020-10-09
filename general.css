@@ -1,6 +1,6 @@
 body {
-    background-color: black;
-    color: white;
+    background-color: rgb(15, 15, 15);
+    color: rgb(250, 250, 250);
     display: grid;
 }
 
