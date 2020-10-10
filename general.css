@@ -6,7 +6,7 @@ body {
 }
 
 a {
-    color: yellow;
+    color: inherit;
     text-decoration: none;
 }
 
@@ -15,21 +15,11 @@ a:hover {
     text-decoration-skip-ink: all;
 }
 
-.divider hr {
-    color: inherit;
-    border-top: 10px;
-}
-
 .navigation {
     font-size: large;
     display: grid;
     grid-template-columns: auto repeat(10, auto);
     border-bottom: 0.5px solid rgb(250, 250, 250);
-}
-
-.navigation a {
-    color: inherit;
-
 }
 
 .mark {
@@ -57,11 +47,12 @@ a:hover {
     border-right: 0.5px solid rgb(250, 250, 250)
 }
 
-.title {
+.breadcrumbs {
     text-align: left;
 }
 
 .heading {
     text-align: center;
     font-size: x-large;
+    font-weight: bold;
 }
