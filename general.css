@@ -14,6 +14,11 @@ a:hover {
     text-decoration-skip-ink: all;
 }
 
+.divider hr {
+    color: inherit;
+    border-top: 10px;
+}
+
 .navigation {
     font-size: large;
     display: grid;
@@ -22,10 +27,6 @@ a:hover {
 
 .navigation a {
     color: inherit;
-}
-
-.main {
-    display: grid;
 }
 
 .title {
@@ -39,4 +40,9 @@ a:hover {
 
 .minus-2 {
     grid-area: 1 / -2;
+}
+
+.main {
+    display: grid;
+    grid-template: auto / auto min(700px, 100%) auto;
 }
