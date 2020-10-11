@@ -1,7 +1,6 @@
 body {
     background-color: rgb(15, 15, 15);
     color: rgb(250, 250, 250);
-    display: grid;
     font-family: monospace;
 }
 
@@ -16,30 +15,15 @@ a:hover {
 }
 
 .navigation {
-    font-size: large;
     display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: auto;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-flow: column;
     border-bottom: 0.5px solid rgb(250, 250, 250);
-    text-align: right;
+    direction: rtl;
 }
 
 .mark {
     font-weight: bold;
-    grid-area: 1 / 1 / 1 / -1;
-    text-align: left;
-}
-
-.minus-1 {
-    grid-area: -1 / -1;
-}
-
-.minus-2 {
-    grid-area: -1 / -2;
-}
-
-.minus-3 {
-    grid-area: -1 / -3;
 }
 
 .main {
@@ -48,7 +32,7 @@ a:hover {
 }
 
 .content {
-    min-height: 100vh;
+    min-height: 130vh;
     padding: 1em 1em;
 }
 
