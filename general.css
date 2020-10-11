@@ -18,21 +18,28 @@ a:hover {
 .navigation {
     font-size: large;
     display: grid;
-    grid-template-columns: auto repeat(10, auto);
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: auto;
     border-bottom: 0.5px solid rgb(250, 250, 250);
+    text-align: right;
 }
 
 .mark {
     font-weight: bold;
-    grid-area: 1 / 1;
+    grid-area: 1 / 1 / 1 / -1;
+    text-align: left;
 }
 
 .minus-1 {
-    grid-area: 1 / -1;
+    grid-area: -1 / -1;
 }
 
 .minus-2 {
-    grid-area: 1 / -2;
+    grid-area: -1 / -2;
+}
+
+.minus-3 {
+    grid-area: -1 / -3;
 }
 
 .main {
