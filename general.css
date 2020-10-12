@@ -9,17 +9,26 @@ a:hover {
 
 .main-grid {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 10em 100%;
+    grid-template-columns: [left-edge] 1fr [begin-middle] 5fr [end-middle] 1fr [right-edge];
+    grid-template-rows: auto 100%;
 }
 
 .site-title {
     text-align: center;
+    grid-column: begin-middle / end-middle;
+    font: 40px bold sans-serif;
 }
 
+.back-button {
+    font: 20px sans-serif;
+    border: solid white;
+    justify-content: center;
+}
 
 .debug-medium-white-border {
-    border-style: solid;
-    border-color: white;
-    border-width: 3px;
+    border: solid white
+}
+
+.test {
+    justify-self: center;
 }
