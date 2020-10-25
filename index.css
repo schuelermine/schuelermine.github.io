@@ -1,0 +1,4 @@
+body {
+    width: min(100vw, 700px);
+    background-color: royalblue;
+}
