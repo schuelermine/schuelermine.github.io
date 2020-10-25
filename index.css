@@ -14,7 +14,7 @@ html {
     text-align: right;
 }
 
-.navbar-item {
+.navbar > div {
     display: inline-block;
     width: 100px;
 }
