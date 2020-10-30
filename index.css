@@ -14,7 +14,7 @@ h1,h2 {
 }
 
 h1 {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 h2 {
@@ -50,6 +50,8 @@ a:visited:hover {
 }
 
 .title {
+    font-family: 'IBM Plex Serif', serif;
+    font-weight: 700;
     padding-bottom: 10px;
 }
 
