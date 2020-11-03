@@ -23,15 +23,7 @@ html {
 }
 
 h1,h2 {
-    font-size: 2em;
     padding-top: 10px;
-}
-
-h1 {
-    font-weight: 500;
-}
-
-h2 {
     font-weight: 500;
 }
 
@@ -50,11 +42,11 @@ a:hover {
 }
 
 a:visited {
-    color: rgb(230, 230, 230);
+    color: currentColor;
 }
 
 a:visited:hover {
-    color: inherit;
+    color: currentColor;
 }
 
 .main {
