@@ -4,12 +4,14 @@
     --almost-black: rgb(20, 20, 20);
     --background: var(--almost-black);
     --text: white;
+    --link: yellow;
 }
 
 @media (prefers-color-scheme: light) {
     :root {
         --background: white;
         --text: var(--almost-black);
+        --link: indigo;
     }
 }
 
