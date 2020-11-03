@@ -30,6 +30,7 @@ h1,h2 {
 a {
     --a-color: var(--highlight-color);
     color: var(--a-color);
+    text-decoration: none;
 }
 
 .navbar a {
