@@ -34,12 +34,16 @@ h2 {
 }
 
 a {
-    color: inherit;
+    color: yellow;
     text-decoration: none;
 }
 
+.navbar a {
+    color: var(--text);
+}
+
 a:hover {
-    text-decoration: solid inherit underline;
+    text-decoration: solid currentColor underline;
     text-decoration-skip-ink: all;
 }
 
