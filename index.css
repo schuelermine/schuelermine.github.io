@@ -36,7 +36,7 @@ h2 {
 }
 
 a {
-    color: yellow;
+    color: var(--link);
     text-decoration: none;
 }
 
