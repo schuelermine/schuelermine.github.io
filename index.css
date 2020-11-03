@@ -37,16 +37,12 @@ a {
 }
 
 a:hover {
-    text-decoration: solid currentColor underline;
+    text-decoration: solid var(--link) underline;
     text-decoration-skip-ink: all;
 }
 
 a:visited {
-    color: currentColor;
-}
-
-a:visited:hover {
-    color: currentColor;
+    color: var(--link);
 }
 
 .main {
@@ -56,7 +52,7 @@ a:visited:hover {
 }
 
 .header {
-    border-bottom: 1px solid rgb(230, 230, 230);
+    border-bottom: 1px solid var(--text);
 }
 
 .title {
