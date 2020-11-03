@@ -42,7 +42,7 @@ a:hover {
 }
 
 a:visited {
-    color: var(--link);
+    color: inherit;
 }
 
 .main {
