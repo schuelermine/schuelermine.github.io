@@ -2,16 +2,16 @@
 
 :root {
     --almost-black: rgb(20, 20, 20);
-    --background-color: var(--almost-black);
-    --text-color: white;
-    --highlight-color: yellow;
+    --background-color: white;
+    --text-color: var(--almost-black);
+    --highlight-color: crimson;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
     :root {
-        --background-color: white;
-        --text-color: var(--almost-black);
-        --highlight-color: crimson;
+        --background-color: var(--almost-black);
+        --text-color: white;
+        --highlight-color: yellow;
     }
 }
 
