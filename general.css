@@ -54,7 +54,7 @@ a:hover {
 }
 
 .header {
-    border-bottom: 1px solid var(--text);
+    border-bottom: 1px solid var(--text-color);
 }
 
 .title {
