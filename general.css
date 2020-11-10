@@ -1,5 +1,5 @@
 .system-theme {
-    --text-color: rgb(63, 63, 63);
+    --text-color: rgb(20, 20, 20);
     --background-color: white;
     --link-color: crimson;
 }
@@ -7,25 +7,32 @@
 @media (prefers-color-scheme: dark) {
     .system-theme {
         --text-color: white;
-        --background-color: rgb(63, 63, 63);
+        --background-color: rgb(20, 20, 20);
         --link-color: yellow;
     }
 }
 
 .dark-theme {
     --text-color: white;
-    --background-color: rgb(63, 63, 63);
+    --background-color: rgb(20, 20, 20);
     --link-color: yellow;
 }
 
 .light-theme {
-    --text-color: rgb(63, 63, 63);
+    --text-color: rgb(20, 20, 20);
     --background-color: white;
     --link-color: crimson;
 }
 
+html {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: 200ms;
+}
+
 a {
     color: var(--link-color);
+    text-decoration: none;
 }
 
 a:visited {
@@ -33,15 +40,14 @@ a:visited {
 }
 
 a:hover {
-    text-decoration: 1px solid currentColor underline;
+    text-decoration: underline;
 }
 
-html {
-    background-color: var(--background-color);
-    color: var(--text-color);
+nav {
+    direction: rtl;
 }
 
-nav > a {
+nav div {
     display: inline-block;
     min-width: 200px;
 }

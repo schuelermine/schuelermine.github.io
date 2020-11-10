@@ -11,8 +11,16 @@
 
         <script>
             function setTheme(theme) {
-                document.getElementById("html").className = theme
-            };
+                document.getElementById("html").className = theme;
+                if (document.getElementById("remember-theme-check").checked) {
+                    localStorage.setItem("theme", theme);
+                }
+            }
+            
+            savedTheme = localStorage.getItem("theme");
+            if (savedTheme) {
+                document.getElementById("html").className = savedTheme;
+            }
         </script>
     </head>
     <body>
@@ -20,25 +28,35 @@
             <strong>Anselm Schüler</strong>
 
             <nav>
-                <a href="https://example.com">example.com</a>
-                <a href="https://www.github.com/schuelermine">GitHub</a>
-                <a href="https://www.anselmschueler.com">Other Website</a>
+                <div>
+                    <a href="https://example.com">example.com</a>
+                </div>
+                <div>
+                    <a href="https://www.github.com/schuelermine">GitHub</a>
+                </div>
+                <div>
+                    <a href="https://www.anselmschueler.com">Other Website</a>
+                </div>
             </nav>
         </header>
 
         <main>
-
+            <h1>Heading</h1>
+            <p>
+                Смав трам Пороскеф мею шаскэй блоячых джумен
+            </p>
         </main>
 
         <footer>
-            <input type="radio" name="color-theme" value="system-theme" id="system-theme-radio" checked onchange="setTheme('system-theme');"/>
-            System Theme
-            <br/>
-            <input type="radio" name="color-theme" value="dark-theme" id="dark-theme-radio" onchange="setTheme('dark-theme');"/>
-            Dark Theme
-            <br/>
-            <input type="radio" name="color-theme" value="light-theme" id="light-theme-radio" onchange="setTheme('light-theme');"/>
-            Light Theme
+            <strong>Select color theme</strong>
+            
+            <form>
+                <button type="button" onclick="setTheme('system-theme')">System Theme</button>
+                <button type="button" onclick="setTheme('dark-theme')">Dark Theme</button>
+                <button type="button" onclick="setTheme('light-theme')">Light Theme</button>
+                <input type="checkbox" id="remember-theme-check"/>
+                <label for="save-theme">Remember this choice</label>
+            </form>
         </footer>
     </body>
 </html>
