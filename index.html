@@ -10,9 +10,9 @@
         <meta name="description" content="Anselm Schüler's website"/>
 
         <script>
-            function setBodyClasses(newClassName) {
-                document.getElementById("body").className = newClassName
-            }
+            function setTheme(theme) {
+                document.getElementById("body").className = theme
+            };
         </script>
     </head>
     <body class="system-theme" id="body">
@@ -31,13 +31,13 @@
         </main>
 
         <footer>
-            <input type="radio" name="color-theme" value="system-theme" id="system-theme-radio" checked onchange="activateSystemTheme()/>
+            <input type="radio" name="color-theme" value="system-theme" id="system-theme-radio" checked onchange="setTheme('system-theme')"/>
             System Theme
             <br/>
-            <input type="radio" name="color-theme" value="dark-theme" id="dark-theme-radio" onchange="activateDarkTheme()"/>
+            <input type="radio" name="color-theme" value="dark-theme" id="dark-theme-radio" onchange="setTheme('dark-theme')"/>
             Dark Theme
             <br/>
-            <input type="radio" name="color-theme" value="light-theme" id="light-theme-radio" onchange="activateLightTheme()"/>
+            <input type="radio" name="color-theme" value="light-theme" id="light-theme-radio" onchange="setTheme('light-theme')"/>
             Light Theme
         </footer>
     </body>
