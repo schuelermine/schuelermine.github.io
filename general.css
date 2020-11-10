@@ -1,6 +1,6 @@
 .system-theme {
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,8 +16,8 @@
 }
 
 .light-theme {
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
 }
 
 nav > a {
