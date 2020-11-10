@@ -1,3 +1,15 @@
+.system-theme::after {
+    content: "S"
+}
+
+.dark-theme::after {
+    content: "D"
+}
+
+.light-theme::after {
+    content: "L"
+}
+
 nav > a {
     display: inline-block;
     min-width: 200px;
