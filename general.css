@@ -1,23 +1,48 @@
+::root {
+    --dark: rgb(63, 63, 63);
+}
+
 .system-theme {
-    color: black;
-    background-color: white;
+    --text-color: var(--dark);
+    --background-color: white;
+    --link-color: crimson;
 }
 
 @media (prefers-color-scheme: dark) {
     .system-theme {
-        color: white;
-        background-color: black;
+        --text-color: white;
+        --background-color: var(--dark);
+        --link-color: yellow;
     }
 }
 
 .dark-theme {
-    color: white;
-    background-color: black;
+    --text-color: white;
+    --background-color: var(--dark);
+    --link-color: yellow;
 }
 
 .light-theme {
-    color: black;
-    background-color: white;
+    --text-color: var(--dark);
+    --background-color: white;
+    --link-color: crimson;
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:visited {
+    color: var(--link-color);
+}
+
+a:hover {
+    text-decoration: 1px solid currentColor underline;
+}
+
+html {
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 nav > a {
