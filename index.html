@@ -8,8 +8,14 @@
         <title>Anselm Schüler</title>
         <meta name="author" content="Anselm Schüler"/>
         <meta name="description" content="Anselm Schüler's website"/>
+
+        <script>
+            function setBodyClasses(newClassName) {
+                document.getElementById("body").className = newClassName
+            }
+        </script>
     </head>
-    <body class="system-theme">
+    <body class="system-theme" id="body">
         <header>
             <strong>Anselm Schüler</strong>
 
@@ -20,10 +26,19 @@
             </nav>
         </header>
 
-        <main>
+        <main innerHTML="A">
 
         </main>
 
-        <footer></footer>
+        <footer>
+            <input type="radio" name="color-theme" value="system-theme" id="system-theme-radio" checked onchange="activateSystemTheme()/>
+            System Theme
+            <br/>
+            <input type="radio" name="color-theme" value="dark-theme" id="dark-theme-radio" onchange="activateDarkTheme()"/>
+            Dark Theme
+            <br/>
+            <input type="radio" name="color-theme" value="light-theme" id="light-theme-radio" onchange="activateLightTheme()"/>
+            Light Theme
+        </footer>
     </body>
 </html>
