@@ -1,8 +1,5 @@
-::root {
-    --dark: rgb(63, 63, 63);
-}
-
 .system-theme {
+    --dark: rgb(63, 63, 63);
     --text-color: var(--dark);
     --background-color: white;
     --link-color: crimson;
@@ -10,6 +7,7 @@
 
 @media (prefers-color-scheme: dark) {
     .system-theme {
+        --dark: rgb(63, 63, 63);
         --text-color: white;
         --background-color: var(--dark);
         --link-color: yellow;
@@ -17,12 +15,14 @@
 }
 
 .dark-theme {
+    --dark: rgb(63, 63, 63);
     --text-color: white;
     --background-color: var(--dark);
     --link-color: yellow;
 }
 
 .light-theme {
+    --dark: rgb(63, 63, 63);
     --text-color: var(--dark);
     --background-color: white;
     --link-color: crimson;
