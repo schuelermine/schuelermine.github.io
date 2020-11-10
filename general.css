@@ -1,13 +1,23 @@
-.system-theme::after {
-    content: "S"
+.system-theme {
+    color: white;
+    background-color: black;
 }
 
-.dark-theme::after {
-    content: "D"
+@media (prefers-color-scheme: dark) {
+    .system-theme {
+        color: white;
+        background-color: black;
+    }
 }
 
-.light-theme::after {
-    content: "L"
+.dark-theme {
+    color: white;
+    background-color: black;
+}
+
+.light-theme {
+    color: white;
+    background-color: black;
 }
 
 nav > a {
