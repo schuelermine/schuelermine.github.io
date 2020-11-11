@@ -2,18 +2,23 @@
 <html lang="en" class="system-theme" id="html">
     <head>
         <meta charset="UTF-8"/>
+        <!-- ^ Information on how to read document -->
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="general.css"/>
-        
+        <!-- ^ Styling & view information -->
+
         <title>Anselm Schüler</title>
         <meta name="author" content="Anselm Schüler"/>
         <meta name="description" content="Anselm Schüler's website"/>
+        <!-- ^ Metadata -->
 
         <script>
             function setTheme(theme) {
                 document.getElementById("html").className = theme;
                 if (document.getElementById("remember-theme-check").checked) {
                     localStorage.setItem("theme", theme);
+                    document.getElementById("remember-theme-check").checked = false
                 }
             }
             
@@ -22,12 +27,16 @@
                 document.getElementById("html").className = savedTheme;
             }
         </script>
+        <!-- ^ Theme switching -->
     </head>
-    <body>
+
+    <!-- | Content -->
+    <body style="border: 2px solid var(--text-color);">
         <header>
             <strong>Anselm Schüler</strong>
 
             <nav>
+                <!-- # Navigation bar -->
                 <div>
                     <a href="https://example.com">example.com</a>
                 </div>
@@ -48,6 +57,7 @@
         </main>
 
         <footer>
+            <!-- # Color theme selection panel -->
             <strong>Select color theme</strong>
             
             <form>
