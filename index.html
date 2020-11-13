@@ -15,10 +15,19 @@
 
         <script>
             function setTheme(theme) {
-                document.getElementById("html").className = theme;
+                document.getElementById("html").classList.remove("system-theme", "dark-theme", "light-theme");
+                document.getElementById("html").classList.add(theme);
                 if (document.getElementById("remember-theme-check").checked) {
                     localStorage.setItem("theme", theme);
-                    document.getElementById("remember-theme-check").checked = false
+                    document.getElementById("remember-theme-check").checked = false;
+                }
+            }
+
+            function toggleCrazy() {
+                if (document.getElementById("html").classList.contains("crazy")) {
+                    document.getElementById("html").classList.remove("crazy");
+                } else {
+                    document.getElementById("html").classList.add("crazy");
                 }
             }
             
@@ -62,21 +71,23 @@
             <!-- # Color theme selection panel -->
             <strong>Select color theme&colon;</strong>
             <br/>
-            <button type="button" onclick="setTheme('system-theme')">
+            <button type="button" onclick="setTheme('system-theme');">
                 System Theme
             </button>
-            <button type="button" onclick="setTheme('dark-theme')">
+            <button type="button" onclick="setTheme('dark-theme');">
                 Dark Theme
             </button>
-            <button type="button" onclick="setTheme('light-theme')">
+            <button type="button" onclick="setTheme('light-theme');">
                 Light Theme
             </button>
             <br/>
 
-            <input type="checkbox" id="remember-theme-check"/>
-            <label for="remember-theme-check">
-                Remember this choice
-            </label>
+            <checkbox id="remember-theme-check">
+                &sect; Remember this choice
+            </checkbox>
+            <br/>
+
+            <button type="button" onclick="toggleCrazy();">CRAZY</button>
         </footer>
     </body>
 </html>

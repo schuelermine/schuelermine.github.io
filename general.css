@@ -1,4 +1,16 @@
+/* CRAZY */
+
+html.crazy * {
+    border: 2px solid cyan;
+    border-top-color: darkorchid;
+    border-radius: 10px;
+}
+
 /* Color theme setup */
+
+* {
+    transition: 200ms;
+}
 
 .system-theme {
     --text-color: rgb(20, 20, 20);
@@ -31,6 +43,7 @@
 a {
     color: var(--link-color);
     text-decoration: none;
+    /* transition: var(--theme-switch-time); */
 }
 
 a:visited {
@@ -46,13 +59,14 @@ button {
     color: var(--text-color);
     border: 1px solid var(--text-color);
     border-radius: 1px;
+    /* transition: var(--theme-switch-time); */
 }
 
 /* Body & Html */
 
 html {
     background-color: var(--background-color);
-    transition: 200ms;
+    /* transition: var(--theme-switch-time); */
 }
 
 body {
@@ -61,6 +75,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     font-family: sans-serif;
+    /* transition: var(--theme-switch-time); */
 }
 
 /* Sections and classes */
