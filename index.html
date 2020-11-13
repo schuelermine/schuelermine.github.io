@@ -13,29 +13,9 @@
         <meta name="description" content="Anselm Schüler's website"/>
         <!-- ^ Metadata -->
 
-        <script>
-            function setTheme(theme) {
-                document.getElementById("html").classList.remove("system-theme", "dark-theme", "light-theme");
-                document.getElementById("html").classList.add(theme);
-                if (document.getElementById("remember-theme-check").checked) {
-                    localStorage.setItem("theme", theme);
-                    document.getElementById("remember-theme-check").checked = false;
-                }
-            }
-
-            function toggleCrazy() {
-                if (document.getElementById("html").classList.contains("crazy")) {
-                    document.getElementById("html").classList.remove("crazy");
-                } else {
-                    document.getElementById("html").classList.add("crazy");
-                }
-            }
-            
-            savedTheme = localStorage.getItem("theme");
-            if (savedTheme) {
-                document.getElementById("html").className = savedTheme;
-            }
-        </script>
+        <script defer src="setTheme.js"></script>
+        <script defer src="toggleCrazy.js"></script>
+        <script defer src="rememberTheme.js"></script>
         <!-- ^ Theme switching -->
     </head>
 
