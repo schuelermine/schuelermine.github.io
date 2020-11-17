@@ -1,4 +1,4 @@
-savedTheme = localStorage.getItem("theme");
-if (savedTheme) {
-    document.getElementById("html").className = savedTheme;
+θ = localStorage.getItem("theme");
+if (θ) {
+    document.getElementById("html").className = θ;
 }
