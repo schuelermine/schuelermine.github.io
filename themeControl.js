@@ -16,12 +16,12 @@ const ξ = {
         "--text-color": null,
         "--link-color": null
     }
-}
+};
 
 // Function to set a style
 
 function φ(η, κ, π) {
-    document.getElementById(η).style.setProperty(κ, π)
+    document.getElementById(η).style.setProperty(κ, π);
 }
 
 // Function to save theme in local storage
@@ -38,8 +38,8 @@ function ψ(β) {
 
 function setTheme(ω) {
     Object.entries(ξ[ω]).forEach(χ => {
-        φ("html", χ[0], χ[1])
-    })
+        φ("html", χ[0], χ[1]);
+    });
 
     ψ(ω);
 }
@@ -48,5 +48,5 @@ function setTheme(ω) {
 
 var θ = localStorage.getItem("theme");
 if (θ) {
-    setTheme(θ)
+    setTheme(θ);
 }
