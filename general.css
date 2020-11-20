@@ -1,70 +1,68 @@
-* {
-    transition: 200ms;
+/* Element styles */
+
+nav {
+  direction: rtl;
+}
+
+nav > a {
+  display: inline-block;
+  min-width: 100px;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--link-color);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  border-radius: 1px;
+  /* transition: var(--theme-switch-time); */
 }
 
 /* Color theme setup */
 
 html {
-    --text-color: rgb(20, 20, 20);
-    --background-color: white;
-    --link-color: crimson;
+  --text-color: rgb(20, 20, 20);
+  --background-color: white;
+  --link-color: crimson;
 }
 
 @media (prefers-color-scheme: dark) {
-    html {
-        --text-color: white;
-        --background-color: rgb(20, 20, 20);
-        --link-color: yellow;
-    }
-}
-
-/* Element styles */
-
-a {
-    color: var(--link-color);
-    text-decoration: none;
-    /* transition: var(--theme-switch-time); */
-}
-
-a:visited {
-    color: var(--link-color);
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-button {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    border: 1px solid var(--text-color);
-    border-radius: 1px;
-    /* transition: var(--theme-switch-time); */
+  html {
+    --text-color: white;
+    --background-color: rgb(20, 20, 20);
+    --link-color: yellow;
+  }
 }
 
 /* Body & Html */
 
 html {
-    background-color: var(--background-color);
-    /* transition: var(--theme-switch-time); */
+  background-color: var(--background-color);
+  /* transition: var(--theme-switch-time); */
 }
 
 body {
-    color: var(--text-color);
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: sans-serif;
-    /* transition: var(--theme-switch-time); */
+  color: var(--text-color);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: sans-serif;
 }
 
-/* Sections and classes */
+/* Global rules */
 
-nav {
-    direction: rtl;
-}
-
-nav > a {
-    display: inline-block;
-    min-width: 100px;
+* {
+  transition: 200ms;
 }
