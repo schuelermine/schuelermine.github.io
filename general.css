@@ -4,7 +4,7 @@ nav {
   direction: rtl;
 }
 
-nav > a {
+nav > div {
   display: inline-block;
   min-width: 7em;
 }
