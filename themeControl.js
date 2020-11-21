@@ -20,27 +20,26 @@ const ξ = {
 
 // Function to set a style
 
-function φ(η, κ, π) {
+const φ = (η, κ, π) => {
     document.getElementById(η).style.setProperty(κ, π);
 }
 
 // Function to save theme in local storage
 // if "Remember Theme" is checked
 
-function ψ(β) {
-    if (document.getElementById("remember-theme-check")?.getAttribute("checked") !== null) {
+const ψ = (β) => {
+    if (document.getElementById("remember-theme-check")?.checked) {
         window.localStorage.setItem("theme", β);
-        document.getElementById("remember-theme-check")?.setAttribute("checked", null);
+        document.getElementById("remember-theme-check").checked = false;
     }
 }
 
 // Looks up theme name in ξ
 
-function setTheme(ω) {
-    Object.entries(ξ[ω]).forEach(χ => {
+const setTheme = (ω) => {
+    Object.entries(ξ[ω]).forEach((χ) => {
         φ("html", χ[0], χ[1]);
     });
-
     ψ(ω);
 }
 

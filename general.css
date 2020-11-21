@@ -6,7 +6,7 @@ nav {
 
 nav > a {
   display: inline-block;
-  min-width: 100px;
+  min-width: 7em;
 }
 
 a {
@@ -30,6 +30,11 @@ button {
   /* transition: var(--theme-switch-time); */
 }
 
+fieldset {
+  border: 1px solid var(--text-color);
+  border-radius: 1px;
+}
+
 /* Color theme setup */
 
 html {
@@ -46,16 +51,23 @@ html {
   }
 }
 
+/* Classes */
+
+.checkbox-container {
+  white-space: nowrap;
+  margin-left: 1ch;
+}
+
 /* Body & Html */
 
 html {
   background-color: var(--background-color);
-  /* transition: var(--theme-switch-time); */
 }
 
 body {
   color: var(--text-color);
-  max-width: 400px;
+  max-width: 38em;
+  padding: 1em;
   margin-left: auto;
   margin-right: auto;
   font-family: sans-serif;
