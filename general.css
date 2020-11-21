@@ -35,6 +35,14 @@ fieldset {
   border-radius: 1px;
 }
 
+fieldset > details {
+  margin-top: 1em;
+}
+
+summary {
+  white-space: nowrap;
+}
+
 /* Color theme setup */
 
 html {
