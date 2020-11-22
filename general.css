@@ -46,7 +46,7 @@ summary {
 /* Color theme setup */
 
 html {
-  --text-color: rgb(20, 20, 20);
+  --text-color: #141414;
   --background-color: white;
   --link-color: crimson;
 }
@@ -54,7 +54,7 @@ html {
 @media (prefers-color-scheme: dark) {
   html {
     --text-color: white;
-    --background-color: rgb(20, 20, 20);
+    --background-color: #141414;
     --link-color: yellow;
   }
 }
@@ -76,6 +76,7 @@ body {
   color: var(--text-color);
   max-width: 38em;
   padding: 1em;
+  margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   font-family: sans-serif;

@@ -13,7 +13,8 @@
         <meta name="description" content="Anselm Schüler's website"/>
         <!-- ↑ Metadata -->
 
-        <script src="themeControl.js"></script>
+        <script src="themeControl.init.js"></script>
+        <script src="themeControl.js" defer></script>
         <!-- ↑ Theme switching -->
     </head>
 
@@ -93,7 +94,7 @@
             <fieldset>
                 <legend>Select color theme&colon;</legend>
             
-                <button type="button" onclick="setTheme('system-theme');">System Theme</button>
+                <button type="button" onclick="unsetTheme();">System Theme</button>
                 <button type="button" onclick="setTheme('dark-theme');">Dark Theme</button>
                 <button type="button" onclick="setTheme('light-theme');">Light Theme</button>
                 <span class="checkbox-container">

@@ -1,51 +1,27 @@
-// Themes
+// Elements
 
-const ξ = {
-    "dark-theme": {
-        "--background-color": "rgb(20, 20, 20)",
-        "--text-color": "white",
-        "--link-color": "yellow"
-    },
-    "light-theme": {
-        "--background-color": "white",
-        "--text-color": "rgb(20, 20, 20)",
-        "--link-color": "crimson"
-    },
-    "system-theme": {
-        "--background-color": null,
-        "--text-color": null,
-        "--link-color": null
-    }
-};
+const html = document.getElementById("html")
+const checkbox = document.getElementById("remember-theme-check")
 
-// Function to set a style
+// Set and unset themes
 
-const φ = (η, κ, π) => {
-    document.getElementById(η).style.setProperty(κ, π);
-}
-
-// Function to save theme in local storage
-// if "Remember Theme" is checked
-
-const ψ = (β) => {
-    if (document.getElementById("remember-theme-check")?.checked) {
-        window.localStorage.setItem("theme", β);
-        document.getElementById("remember-theme-check").checked = false;
+function setTheme(ω) {
+    html.style.setProperty("--background-color", themes[ω][0]);
+    html.style.setProperty("--text-color", themes[ω][1]);
+    html.style.setProperty("--link-color", themes[ω][2]);
+    if (checkbox.checked) {
+        window.localStorage.setItem("theme", ω);
+        checkbox.checked = false;
     }
 }
 
-// Looks up theme name in ξ
+function unsetTheme() {
+    html.style.removeProperty("--background-color");
+    html.style.removeProperty("--text-color");
+    html.style.removeProperty("--link-color");
 
-const setTheme = (ω) => {
-    Object.entries(ξ[ω]).forEach((χ) => {
-        φ("html", χ[0], χ[1]);
-    });
-    ψ(ω);
-}
-
-// Initialize theme
-
-var θ = localStorage.getItem("theme");
-if (θ) {
-    setTheme(θ);
+    if (checkbox.checked) {
+        window.localStorage.removeItem("theme");
+        checkbox.checked = false;
+    }
 }
