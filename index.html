@@ -26,7 +26,7 @@
             <!-- ↓ Navigation bar -->
             <nav>
                 <div>
-                    <a href="https://schuelermine.github.io">Reload</a>
+                    <a href="index.html">Reload</a>
                 </div>
                 <div>
                     <a href="https://www.github.com/schuelermine/schuelermine.github.io">Source</a>
@@ -94,34 +94,51 @@
             <fieldset>
                 <legend>Select color theme&colon;</legend>
             
-                <button type="button" onclick="unsetTheme();">System Theme</button>
-                <button type="button" onclick="setTheme('dark-theme');">Dark Theme</button>
-                <button type="button" onclick="setTheme('light-theme');">Light Theme</button>
+                <button type="button" onclick="handleThemeChoice(noTheme);">Automatic</button>
+                <button type="button" onclick="handleThemeChoice(darkTheme);">Dark Theme</button>
+                <button type="button" onclick="handleThemeChoice(lightTheme);">Light Theme</button>
                 <span class="checkbox-container">
                     <input type="checkbox" id="remember-theme-check"/>
                     <label for="remember-theme-check">Remember this choice</label>
                 </span>
+                <br/>
+                <button type="button" onclick="window.location.assign('moreThemes.html')">More themes</button>
 
                 <!-- ↓ LocalStorage notice -->
                 <details>
-                    <summary>Disclosure about theme saving</summary>
-                    <p>
-                        Selecting <i>Remember this choice</i> means that
-                        anselmschueler.com will store the theme in
-                        your browser's <b>local storage</b>, and will retrieve it
-                        when you open the site or reload it.
-                    </p>
-                    <p>
-                        This data <b>isn't communicated to anybody</b> and stays on your device.
-                    </p>
-                    <p>
-                        If you're using a modern browser, you can delete
-                        this data in the settings. It might be called <i>Cookies</i> or <i>Site Data</i>
-                        or something similar.
-                    </p>
+                    <summary>Disclosure about data storage for themes</summary>
+                    <ul>
+                        <li>
+                            <p>
+                                Selecting a theme means that anselmschueler.com
+                                will store the theme in your browser's temporary
+                                <i>session storage</i>.
+                            </p>
+                            <p>
+                                The session storage is automatically deleted when you close the page.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Selecting <i>Remember this choice</i> means that
+                                anselmschueler.com will store the theme in
+                                your browser's <i>local storage</i>, and will retrieve it
+                                when you open the site or reload it.
+                            </p>
+                            <p>
+                                If you're using a modern browser, you can delete this site's
+                                local storage in the settings. It might be called <i>Cookies</i> or <i>Site Data</i>
+                                or something similar.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                All of this data <b>isn't communicated to anybody</b> and stays on your device.
+                            </p>
+                        </li>
+                    </ul>
                 </details>
             </fieldset>
-            </p>
         </footer>
     </body>
 </html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+    <head>
+        <meta charset="UTF-8"/>
+        <!-- ↑ Information on how to read document -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="general.css"/>
+        <!-- ↑ Styling & view information -->
+
+        <title>Anselm Schüler</title>
+        <meta name="author" content="Anselm Schüler"/>
+        <meta name="description" content="Anselm Schüler's website"/>
+        <!-- ↑ Metadata -->
+
+        <script src="themeControl.init.js"></script>
+        <script src="themeControl.js" defer></script>
+        <script src="moreThemes.js" defer></script>
+        <!-- ↑ Theme switching -->
+    </head>
+
+    <!-- ↓ Content -->
+    <body>
+        <header>
+            <strong>Anselm Schüler</strong>
+            
+            <!-- ↓ Navigation bar -->
+            <nav>
+                <div>
+                    <a href="https://schuelermine.github.io">Reload</a>
+                </div>
+                <div>
+                    <a href="https://www.github.com/schuelermine/schuelermine.github.io">Source</a>
+                </div>
+                <div>
+                    <a href="https://sites.google.com/view/anselmschueler">Site 2</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <h1>Select your preferred theme</h1>
+            <p>
+                <button type="button" onclick="handleThemeChoice(noTheme);">Automatic</button>
+                <button type="button" onclick="handleThemeChoice(darkTheme);">Dark Theme</button>
+                <button type="button" onclick="handleThemeChoice(lightTheme);">Light Theme</button>
+            </p>
+            <p>
+                <button type="button" onclick="handleThemeChoice(blueTheme);">Blue theme</button>
+            </p>
+            <span class="checkbox-container">
+                <input type="checkbox" id="remember-theme-check"/>
+                <label for="remember-theme-check">Remember this choice</label>
+            </span>
+        </main>
+
+        <footer>
+            <!-- ↓ LocalStorage notice -->
+            <details>
+                <summary>Disclosure about data storage for themes</summary>
+                <ul>
+                    <li>
+                        <p>
+                            Selecting a theme means that anselmschueler.com
+                            will store the theme in your browser's temporary
+                            <i>session storage</i>.
+                        </p>
+                        <p>
+                            The session storage is automatically deleted when you close the page.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Selecting <i>Remember this choice</i> means that
+                            anselmschueler.com will store the theme in
+                            your browser's <i>local storage</i>, and will retrieve it
+                            when you open the site or reload it.
+                        </p>
+                        <p>
+                            If you're using a modern browser, you can delete this site's
+                            local storage in the settings. It might be called <i>Cookies</i> or <i>Site Data</i>
+                            or something similar.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            All of this data <b>isn't communicated to anybody</b> and stays on your device.
+                        </p>
+                    </li>
+                </ul>
+            </details>
+        </footer>
+    </body>
+</html>

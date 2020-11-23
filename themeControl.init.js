@@ -1,15 +1,20 @@
-// Themes
-
-const themes = {
-    "dark-theme": ["#141414", "white", "yellow"],
-    "light-theme": ["white", "#141414", "crimson"]
-}
-
 // Initialize theme
 
-var savedTheme = localStorage.getItem("theme");
-if (savedTheme) {
-    html.style.setProperty("--background-color", themes[savedTheme][0]);
-    html.style.setProperty("--text-color", themes[savedTheme][1]);
-    html.style.setProperty("--link-color", themes[savedTheme][2]);
+const html = document.getElementById("html");
+
+function setTheme(α) {
+    Object.entries(α.colors).forEach((β) => {
+        html.style.setProperty(β[0], β[1]);
+    });
 }
+
+try {
+    var α = JSON.parse(sessionStorage.getItem("theme"));
+    if (α !== null) {
+        setTheme(α);
+    } else {
+        var β = localStorage.getItem("theme");
+        sessionStorage.setItem("theme", β);
+        setTheme(JSON.parse(β));
+    }
+} catch {}
