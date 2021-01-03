@@ -43,22 +43,6 @@ summary {
   white-space: nowrap;
 }
 
-/* Color theme setup */
-
-html {
-  --text-color: #141414;
-  --background-color: white;
-  --link-color: crimson;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    --text-color: white;
-    --background-color: #141414;
-    --link-color: yellow;
-  }
-}
-
 /* Classes */
 
 .checkbox-container {
@@ -82,7 +66,7 @@ body {
   font-family: sans-serif;
 }
 
-/* Global rules */
+/* Smooth transitions globally */
 
 * {
   transition: 200ms;

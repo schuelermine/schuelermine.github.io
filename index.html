@@ -5,8 +5,13 @@
         <!-- ↑ Information on how to read document -->
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- ↑ Configures adaptive display, makes site work well on mobile -->
+
+        <link rel="stylesheet" href="theme/auto.css" id="theme"/>
+        <!-- ↑ Theme -->
+
         <link rel="stylesheet" href="general.css"/>
-        <!-- ↑ Styling & view information -->
+        <!-- ↑ General styling -->
 
         <title>Anselm Schüler</title>
         <meta name="author" content="Anselm Schüler"/>
@@ -94,12 +99,12 @@
             <fieldset>
                 <legend>Select color theme&colon;</legend>
             
-                <button type="button" onclick="unsetTheme();">System Theme</button>
-                <button type="button" onclick="setTheme('dark-theme');">Dark Theme</button>
-                <button type="button" onclick="setTheme('light-theme');">Light Theme</button>
+                <button type="button" onclick="setAndSaveTheme('theme/auto.css');">System Theme</button>
+                <button type="button" onclick="setAndSaveTheme('theme/dark.css');">Dark Theme</button>
+                <button type="button" onclick="setAndSaveTheme('theme/light.css');">Light Theme</button>
                 <span class="checkbox-container">
-                    <input type="checkbox" id="remember-theme-check"/>
-                    <label for="remember-theme-check">Remember this choice</label>
+                    <input type="checkbox" id="save-theme"/>
+                    <label for="save-theme">Remember this choice</label>
                 </span>
 
                 <!-- ↓ LocalStorage notice -->
