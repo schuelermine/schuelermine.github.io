@@ -1,9 +1,0 @@
-html {
-    --text-color: white;
-    --background-color: #0044ff;
-    --link-color: white;
-}
-
-html a {
-    text-decoration: solid currentColor underline;
-}
