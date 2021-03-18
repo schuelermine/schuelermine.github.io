@@ -1,26 +1,26 @@
-type ThemeObj = NamedTheme | CustomTheme;
-type NamedTheme = {type: "namedTheme", value: "dark" | "light" | "auto"};
+const themeNames = ["dark", "light", "auto"];
+type ThemeName = (typeof themeNames)[number];
+type NamedTheme = {type: "namedTheme", value: ThemeName};
 type CustomTheme = {type: "customTheme", value: string};
-// TODO: This is very wet, please make dry.
-function mkNamedTheme(name: string): NamedTheme {
-    switch (name) {
-        case "dark":
-            return {type: "namedTheme", value: "dark"}
-        case "light":
-            return {type: "namedTheme", value: "light"}
-        case "auto":
-            return {type: "namedTheme", value: "auto"}
-        default:
-            return {type: "namedTheme", value: "auto"}
-    }
+
+type ThemeObject = NamedTheme | CustomTheme;
+
+function fromThemeName (themeName: ThemeName): NamedTheme {
+    return {type: "namedTheme", value: themeName};
 }
 
-let themeStr = localStorage.getItem("theme");
-let themeObj : ThemeObj;
-try {
-    themeObj = JSON.parse(themeStr);
-} catch {
-    themeObj = mkNamedTheme(themeStr)
-    themeStr = JSON.stringify({type: "namedTheme", value: themeStr})
-    localStorage.setItem("theme", themeStr); // ? maybe confusing use of variables
+function isThemeName(name: string): name is ThemeName {
+    return themeNames.includes(name);
+}
+
+function isNamedTheme(theme: ThemeObject): theme is NamedTheme {
+    return theme.type === "namedTheme";
+}
+
+function isCustomTheme(theme: ThemeObject): theme is CustomTheme {
+    return theme.type === "customTheme";
+}
+
+function mkNamedTheme(name: string, def: ThemeName): NamedTheme {
+    return fromThemeName(isThemeName(name) ? name : def);
 }
