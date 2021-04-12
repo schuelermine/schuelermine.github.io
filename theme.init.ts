@@ -1,26 +1,9 @@
-type ThemeObj = NamedTheme | CustomTheme;
-type NamedTheme = {type: "namedTheme", value: "dark" | "light" | "auto"};
-type CustomTheme = {type: "customTheme", value: string};
-// TODO: This is very wet, please make dry.
-function mkNamedTheme(name: string): NamedTheme {
-    switch (name) {
-        case "dark":
-            return {type: "namedTheme", value: "dark"}
-        case "light":
-            return {type: "namedTheme", value: "light"}
-        case "auto":
-            return {type: "namedTheme", value: "auto"}
-        default:
-            return {type: "namedTheme", value: "auto"}
-    }
-}
+type NamedTheme = {themeType: "namedTheme", value: "dark" | "light"};
+type CustomTheme = {themeType: "customTheme", value: string};
+type ThemeObject = 
+    //                                               ______
+    // Unfortunately, you can't do string => CSSStyleSheet w/o dummy objects,
+    // and you can't set an HTMLStyleElement's content to anything except a string.
+    // It works, but it's non-self-documenting and feels kinda iffy
 
-let themeStr = localStorage.getItem("theme");
-let themeObj : ThemeObj;
-try {
-    themeObj = JSON.parse(themeStr);
-} catch {
-    themeObj = mkNamedTheme(themeStr)
-    themeStr = JSON.stringify({type: "namedTheme", value: themeStr})
-    localStorage.setItem("theme", themeStr); // ? maybe confusing use of variables
-}
+let x;

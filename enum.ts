@@ -1,0 +1,1 @@
+enum Enum {One = "one", Two = "two"}
