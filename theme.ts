@@ -28,3 +28,7 @@ if (savedTheme === null) {
         theme = {type: "namedTheme", value: isKnownTheme(savedTheme) ? savedTheme : "auto"}
     }
 }
+
+function applyTheme() {
+    
+}
