@@ -15,9 +15,8 @@
         <meta name="description" content="Anselm Schüler's website"/>
         <!-- ↑ Metadata -->
 
-        <style id="theme"></style>
-
-        <script src="theme.js" defer></script>
+        <style id="theme">:root {--background-color: #141414; --text-color: white; --link-color: yellow;} @media (prefers-color-scheme: dark) {:root {--background-color: white; --text-color: #141414; --link-color: crimson;}}</style>
+        <script src="theme.js"></script>
     </head>
 
     <!-- ↓ Content -->
@@ -71,14 +70,13 @@
         </main>
 
         <footer>
-            <h3 style="border-top: 2px solid red;">Warning: The theme system is currently non-functional, and is being rebuilt from the ground up.</h1>
             <!-- ↓ Color theme selection panel -->
             <fieldset>
                 <legend>Select color theme&colon;</legend>
             
-                <button type="button" onclick="setAndSaveTheme('theme/auto.css');">System Theme</button>
-                <button type="button" onclick="setAndSaveTheme('theme/dark.css');">Dark Theme</button>
-                <button type="button" onclick="setAndSaveTheme('theme/light.css');">Light Theme</button>
+                <button type="button" onclick="setTheme(NamedTheme('dark'));">Dark Theme</button>
+                <button type="button" onclick="setTheme(NamedTheme('light'));">Light Theme</button>
+                <button type="button" onclick="setTheme(NamedTheme('auto'));">System Theme</button>
                 <span class="checkbox-container">
                     <input type="checkbox" id="save-theme"/>
                     <label for="save-theme">Remember this choice</label>
