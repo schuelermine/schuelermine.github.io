@@ -67,6 +67,14 @@ body {
   font-family: sans-serif;
 }
 
+/* Footer */
+
+footer {
+  position: absolute;
+  width: 80ch;
+  bottom: 0;
+}
+
 /* Smooth transitions globally */
 
 * {
