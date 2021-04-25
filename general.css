@@ -27,6 +27,7 @@ button {
   color: var(--text-color);
   border: 1px solid var(--text-color);
   border-radius: 1px;
+  font-size: 100%;
   /* transition: var(--theme-switch-time); */
 }
 
@@ -58,7 +59,7 @@ html {
 
 body {
   color: var(--text-color);
-  max-width: 38em;
+  max-width: 80ch;
   padding: 1em;
   margin-top: 0;
   margin-left: auto;

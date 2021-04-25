@@ -7,9 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- ↑ Configures adaptive display, makes site work well on mobile -->
 
-        <link rel="stylesheet" href="theme/auto.css" id="theme"/>
-        <!-- ↑ Theme -->
-
         <link rel="stylesheet" href="general.css"/>
         <!-- ↑ General styling -->
 
@@ -18,9 +15,8 @@
         <meta name="description" content="Anselm Schüler's website"/>
         <!-- ↑ Metadata -->
 
-        <!-- <script src="themeControl.init.js"></script> -->
-        <!-- <script src="themeControl.js" defer></script> -->
-        <!-- ↑ Theme switching -->
+        <style id="theme">:root {--background-color: #141414; --text-color: white; --link-color: yellow;} @media (prefers-color-scheme: dark) {:root {--background-color: white; --text-color: #141414; --link-color: crimson;}}</style>
+        <script src="theme.js"></script>
     </head>
 
     <!-- ↓ Content -->
@@ -70,39 +66,17 @@
                 ducimus ea repellat earum accusantium.
                 Ut qui ut beatae eveniet consequatur quia.
                 In recusandae est architecto non ut.
-            </p><p>
-                Commodi et hic vel et quis praesentium officiis iusto.
-                Ex sed culpa blanditiis tempora iure a.
-                Cumque non ut debitis perspiciatis voluptatibus occaecati omnis.
-                Ut ea numquam hic sit autem ab.
-                Eum necessitatibus dolores pariatur
-                harum voluptatem voluptatibus dolore.
-            </p><p>    
-                Quas vitae rerum tenetur pariatur mollitia id.
-                Totam corrupti pariatur minima inventore eum et.
-                Id nesciunt velit nobis incidunt.
-                Iusto occaecati culpa sequi unde eveniet.
-                Ad iste officia ut sequi temporibus aperiam.
-                Eligendi accusantium officiis est velit totam et.
-            </p><p>
-                Ad eaque eius quia. Sed repellendus voluptas ex.
-                Exercitationem similique sit officiis nihil esse error ipsum.
-                Repudiandae voluptatem itaque rerum
-                asperiores vitae quia illum fugiat.
-                Odio aut facere voluptates ipsam.
-                Perferendis consequuntur quas recusandae deleniti.                
             </p>
         </main>
 
         <footer>
-            <h3 style="border-top: 2px solid red;">Warning: The theme system is currently non-functional, and is being rebuilt from the ground up.</h1>
             <!-- ↓ Color theme selection panel -->
             <fieldset>
                 <legend>Select color theme&colon;</legend>
             
-                <button type="button" onclick="setAndSaveTheme('theme/auto.css');">System Theme</button>
-                <button type="button" onclick="setAndSaveTheme('theme/dark.css');">Dark Theme</button>
-                <button type="button" onclick="setAndSaveTheme('theme/light.css');">Light Theme</button>
+                <button type="button" onclick="buttonHandler('dark');">Dark Theme</button>
+                <button type="button" onclick="buttonHandler('light');">Light Theme</button>
+                <button type="button" onclick="buttonHandler('auto');">System Theme</button>
                 <span class="checkbox-container">
                     <input type="checkbox" id="save-theme"/>
                     <label for="save-theme">Remember this choice</label>
@@ -114,17 +88,19 @@
                     <p>
                         Selecting <i>Remember this choice</i> means that
                         anselmschueler.com will store the theme in
-                        your browser's <b>local storage</b>, and will retrieve it
+                        your browser's <i>local storage</i>, and will retrieve it
                         when you open the site or reload it.
                     </p>
                     <p>
-                        This data <b>isn't communicated to anybody</b> and stays on your device.
+                        This data <strong>isn't communicated to anybody</strong> and stays on your device.
                     </p>
                     <p>
                         If you're using a modern browser, you can delete
                         this data in the settings. It might be called <i>Cookies</i> or <i>Site Data</i>
                         or something similar.
                     </p>
+
+                    <u></u>
                 </details>
             </fieldset>
             </p>
