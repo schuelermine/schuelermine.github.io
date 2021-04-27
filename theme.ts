@@ -58,7 +58,7 @@ let defaultTheme = NamedTheme("auto")
 function parseTheme(str: string): Theme {
     let theme: Theme;
     try {
-        let obj = JSON.parse(str)
+        let obj: any = JSON.parse(str)
         theme = isTheme(obj) ? obj : defaultTheme;
     } catch {
         theme = {type: "namedTheme", value: isKnownTheme(str) ? str : "auto"};
@@ -104,10 +104,10 @@ function getTheme(): Theme {
  * Applies theme to website by changing content of a style element.
  */
 function applyTheme(theme: Theme): void {
-    let themeStr = theme.type === "namedTheme" ? themeTable[theme.value] : theme.value;
-    let themeNode = document.getElementById("theme");
+    let themeCss: string = theme.type === "namedTheme" ? themeTable[theme.value] : theme.value;
+    let themeNode: HTMLElement | null = document.getElementById("theme");
     if (themeNode !== null) {
-        themeNode.innerHTML = themeStr;
+        themeNode.innerHTML = themeCss;
     }
 }
 
@@ -129,8 +129,8 @@ function setCurrentTheme(str: string): void {
  * Gets checkbox state, sets it to unchecked, and returns the original state.
  */
 function checkboxHandler(): boolean {
-    let checkbox = document.getElementById("save-theme") as HTMLInputElement;
-    let wasChecked = checkbox.checked
+    let checkbox: HTMLInputElement = document.getElementById("save-theme") as HTMLInputElement;
+    let wasChecked: boolean = checkbox.checked
     checkbox.checked = false
     return wasChecked
 }
@@ -139,8 +139,8 @@ function checkboxHandler(): boolean {
  * Sets current theme, theme preference if needed, and resets checkbox.
  */
 function saveThemeHandler(theme: Theme): void {
-    let themeStr = JSON.stringify(theme);
-    let checked = checkboxHandler();
+    let themeStr: string = JSON.stringify(theme);
+    let checked: boolean = checkboxHandler();
     if (checked) {
         setThemePreference(themeStr);
     }
@@ -152,7 +152,7 @@ function saveThemeHandler(theme: Theme): void {
  * Intended to be called by theme control buttons via onclick event.
  */
 function buttonHandler(name: NamedTheme["value"]): void {
-    let theme = NamedTheme(name);
+    let theme: NamedTheme = NamedTheme(name);
     applyTheme(theme);
     saveThemeHandler(theme);
 }

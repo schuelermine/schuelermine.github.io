@@ -45,10 +45,10 @@ function getTheme() {
     return parseTheme(themeStr);
 }
 function applyTheme(theme) {
-    var themeStr = theme.type === "namedTheme" ? themeTable[theme.value] : theme.value;
+    var themeCss = theme.type === "namedTheme" ? themeTable[theme.value] : theme.value;
     var themeNode = document.getElementById("theme");
     if (themeNode !== null) {
-        themeNode.innerHTML = themeStr;
+        themeNode.innerHTML = themeCss;
     }
 }
 function setThemePreference(str) {
