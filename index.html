@@ -30,7 +30,7 @@
                     <a href="https://schuelermine.github.io">Reload</a>
                 </div>
                 <div>
-                    <a href="https://www.github.com/schuelermine/schuelermine.github.io">Source</a>
+                    <a href="https://www.github.com/schuelermine/schuelermine.github.io">Code</a>
                 </div>
                 <div>
                     <a href="https://sites.google.com/view/anselmschueler">Site 2</a>
@@ -42,10 +42,10 @@
             <h1>Main Page</h1>
             <p>
                 This website is currently being worked on.
-                In the meantime, consult
-                <a href="https://sites.google.com/view/anselmschueler">my other website</a>
-                or enjoy some
-                <abbr title="a.k.a. Lorem Ipsum">faux latin</abbr> text.
+                In the meantime, consult <a href="https://sites.google.com/view/anselmschueler">my other website</a> or enjoy some <abbr title="a.k.a. Lorem Ipsum">faux latin</abbr> text.
+            </p>
+            <p>
+                You can see the progress being made in developing this website on the <a href="https://www.github.com/schuelermine/schuelermine.github.io">GitHub repository</a>.
             </p>
 
             <h1>Sample text</h1>
@@ -79,27 +79,37 @@
                 <button type="button" onclick="buttonHandler('auto');">System Theme</button>
                 <span class="checkbox-container">
                     <input type="checkbox" id="save-theme"/>
-                    <label for="save-theme">Remember this choice</label>
+                    <label for="save-theme">Remember this preference for the next time I visit</label>
                 </span>
 
                 <!-- ↓ LocalStorage notice -->
                 <details>
                     <summary>Disclosure about theme saving</summary>
-                    <p>
-                        Selecting <i>Remember this choice</i> means that anselmschueler.com will store the theme in your browser’s <i>local storage</i>, and will retrieve it when you open the site or reload it.
-                    </p>
-                    <p>
-                        This data <strong>isn’t communicated to anybody</strong> and stays on your device.
-                    </p>
-                    <p>
-                        If you’re using a modern browser, you can delete this data in the browser’s settings.
-                        It might also be called <i>Cookies</i> or <i>Site Data</i> or something similar.
-                    </p>
+                    <section>
+                        <p>
+                            Selecting <i>Remember this preference for the next time I visit</i> means that anselmschueler.com will store the theme you select in your browser’s <i>local storage</i>, and will retrieve it when you open the site again later.
+                        </p>
+                        <p>
+                            This data <strong>isn’t communicated to anybody</strong> and stays on your device.
+                        </p>
+                        <p>
+                            If you’re using a modern browser, you can delete this data in the browser’s settings.
+                            It might also be called <i>Cookies</i> or <i>Site Data</i> or something similar.
+                        </p>
+                    </section>
+                    <section>
+                        <p>
+                            When you select a theme, that theme is saved in your browser’s <i>session storage</i>. This is done so that the theme you selected stays selected when you reload the page or visit a different sub-page.
+                        </p>
+                        <p>
+                            This data is <strong>immediately deleted</strong> when you leave the site.
+                        </p>
+                    </section>
                 </details>
                 <details>
                     <summary>Disclosure about analytics</summary>
                     <p>
-                        I use Cloudflare’s analytics to analyze how many people visit this site, how, and from where.
+                        I use <i>Cloudflare</i>’s analytics to analyze how many people visit this site, how, and from where.
                         The data I get from this is not granular.
                         I only see aggregated data, and can’t identify individual visitors.
                         Data about location and other details is only shown in categories.
