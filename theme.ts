@@ -12,7 +12,7 @@ type CustomTheme = {type: "customTheme", value: string};
 
 /** Checks if theme name is known. */
 function isKnownTheme(name: string): name is NamedTheme["value"] {
-    return knownThemes.includes(name as NamedTheme["value"]);
+    return (knownThemes as readonly string[]).includes(name);
 }
 
 /** Checks for theme object structure. */
