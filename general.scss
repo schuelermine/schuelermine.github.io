@@ -1,0 +1,69 @@
+@mixin border {
+    border: 1px solid var(--text-color);
+    border-radius: 1px;
+}
+
+* {
+    transition: 200ms;
+}
+
+html {
+    background-color: var(--background-color);
+}
+
+body {
+    color: var(--text-color);
+    max-width: 80ch;
+    padding: 1em;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+}
+
+nav {
+    direction: rtl;
+    div {
+        display: inline-block;
+        min-width: 7em;
+    }
+    a {
+        color: var(--text-color);
+    }
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:not(:hover) {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline solid currentColor 1px
+}
+
+fieldset {
+    @include border;
+    details {
+        margin-top: 1em;
+    }
+}
+
+button {
+    @include border;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 100%;
+    /* transition: var(--theme-switch-time); */
+}
+
+summary {
+    white-space: nowrap;
+}
+
+.checkbox-container {
+    white-space: nowrap;
+    margin-left: 1ch;
+}
