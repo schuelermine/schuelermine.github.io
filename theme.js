@@ -98,3 +98,4 @@ function buttonHandler(name) {
 }
 // Initialize theme on load.
 applyTheme(getTheme());
+//# sourceMappingURL=theme.js.map
