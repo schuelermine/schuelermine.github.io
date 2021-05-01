@@ -48,9 +48,9 @@ function parseTheme(str: string): Theme {
 
 /** Map from theme name to CSS code for all known named themes. */
 let themeTable: {[name: string]: string} = {
-    "dark": ":root {--background-color: #141414; --text-color: white; --link-color: yellow;}",
-    "light": ":root {--background-color: white; --text-color: #141414; --link-color: crimson;}",
-    "auto": ":root {--background-color: #141414; --text-color: white; --link-color: yellow;} @media (prefers-color-scheme: light) {:root {--background-color: white; --text-color: #141414; --link-color: crimson;}}"
+    "dark": ":root{--background-color:#141414;--text-color:white;--link-color:yellow;}",
+    "light": ":root{--background-color:white;--text-color:#141414;--link-color:crimson;}",
+    "auto": ":root{--background-color:#141414;--text-color:white;--link-color:yellow;}@media(prefers-color-scheme:light){:root{--background-color:white;--text-color:#141414;--link-color:crimson;}}"
 };
 
 /** Gets persistent saved theme preference as string. */
