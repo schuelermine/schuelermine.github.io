@@ -57,9 +57,6 @@ nav {
 
 #footer-fieldset {
     @include border;
-    button {
-        margin-top: .2em;
-    }
 }
 
 .checkbox-container {
