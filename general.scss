@@ -3,29 +3,19 @@
     border-radius: 1px;
 }
 
-@mixin link-like($selector) {
-    #{$selector} {
-        cursor: pointer;
-        text-decoration: none;
-        &:hover {
-            text-decoration: underline solid currentColor 1px;
-        }
-    }
-}
+@mixin link-like($selector) { #{$selector} {
+    cursor: pointer;
+    text-decoration: none;
+    &:hover { text-decoration: underline solid currentColor 1px; }
+} }
 
-* {
-    transition: 200ms;
-}
+* { transition: 200ms; }
 
-a {
-    color: var(--link-color);
-}
+a { color: var(--link-color); }
 
 @include link-like('a');
 
-details {
-    margin-top: 1em;
-}
+details { margin-top: 1em; }
 
 summary {
     user-select: none;
@@ -42,9 +32,7 @@ button {
     font-size: 100%;
 }
 
-html {
-    background-color: var(--background-color);
-}
+html { background-color: var(--background-color); }
 
 body {
     color: var(--text-color);
@@ -62,14 +50,10 @@ nav {
         display: inline-block;
         min-width: 7em;
     }
-    a {
-        color: var(--text-color);
-    }
+    a { color: var(--text-color); }
 }
 
-#footer-fieldset {
-    @include border;
-}
+#footer-fieldset { @include border; }
 
 .checkbox-container {
     white-space: nowrap;
