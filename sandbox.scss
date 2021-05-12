@@ -1,0 +1,24 @@
+.centered-container {
+    width: inherit;
+    height: 30em;
+    display: grid;
+    place-items: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#ff-logo-container {
+    height: inherit;
+    width: auto;
+}
+
+#ff-logo {
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    transition: 100ms;
+}
+
+#ff-logo-container:hover > #ff-logo {
+    transform: perspective(100em) translateZ(-10em) rotate3d(1,1,1,30deg);
+}
