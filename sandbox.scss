@@ -16,9 +16,11 @@
     height: 100%;
     width: auto;
     aspect-ratio: 1 / 1;
-    transition: 100ms;
+    transition: 10s;
+    transition-timing-function: ease-in-out;
+    transform: perspective(100em) translateZ(-500em);
 }
 
 #ff-logo-container:hover > #ff-logo {
-    transform: perspective(100em) translateZ(-10em) rotate3d(1,1,1,30deg);
+    transform: perspective(100em) translateZ(-10em) rotate3d(1,1,1,1110deg);
 }
