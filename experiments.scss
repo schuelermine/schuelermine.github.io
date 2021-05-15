@@ -9,7 +9,8 @@
 
 #ff-logo-container {
     height: inherit;
-    width: auto;
+    width: max-content;
+    border: 1px solid currentColor;
 }
 
 #ff-logo {
