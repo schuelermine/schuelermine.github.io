@@ -43,7 +43,14 @@ body {
     margin-right: auto;
     font-family: sans-serif;
 }
-
+@media print {
+    :root {
+        --background-color: white !important;
+        --link-color: black !important;
+        --text-color: black !important;
+    }
+    button { border: none; }
+}
 nav {
     direction: rtl;
     div {
@@ -58,4 +65,20 @@ nav {
 .checkbox-container {
     white-space: nowrap;
     margin-left: 1ch;
+}
+
+@media print {
+    :root {
+        --background-color: white;
+        --text-color: black;
+        --link-color: white;
+    }
+    a {
+        text-decoration: underline solid currentColor 1px;
+    }
+    button {
+        border: none;
+        background-color: black;
+        color: white;
+    }
 }
