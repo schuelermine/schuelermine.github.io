@@ -39,19 +39,18 @@
   padding: 5em;
   height: 10em;
   width: 10em;
-  --x: -54;
-  --y: 44;
-  --z: 2;
-  --d: -50deg;
-  --p: 20em;
+  --x: 1;
+  --y: 1;
+  --z: 0;
+  --d: 45deg;
+  --p: 35em;
 }
 
 *:hover > #cube {
-  --d: 510deg;
-  --x: 45;
-  --y: -100;
-  --z: 74;
-  --p: 80em;
+  --x: 2;
+  --y: 1;
+  --z: 3;
+  --d: -100deg;
 }
 
 #cube-top-face {
@@ -89,7 +88,7 @@
   height: 10em;
   width: 10em;
   backface-visibility: hidden;
-  transition: transform 10s;
+  transition: transform 4s;
 }
 
 /*# sourceMappingURL=experiments.css.map */

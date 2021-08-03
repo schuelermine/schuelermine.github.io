@@ -44,19 +44,18 @@ $cube-translation: math.div($cube-edge-length, 2);
     padding: 5em;
     height: $cube-edge-length;
     width: $cube-edge-length;
-    --x: -54;
-    --y: 44;
-    --z: 2;
-    --d: -50deg;
-    --p: 20em;
+    --x: 1;
+    --y: 1;
+    --z: 0;
+    --d: 45deg;
+    --p: 35em;
 }
 
 *:hover > #cube {
-    --d: 510deg;
-    --x: 45;
-    --y: -100;
-    --z: 74;
-    --p: 80em;
+    --x: 2;
+    --y: 1;
+    --z: 3;
+    --d: -100deg;
 }
 
 #cube-top-face {
@@ -88,5 +87,5 @@ $cube-translation: math.div($cube-edge-length, 2);
     height: $cube-edge-length;
     width: $cube-edge-length;
     backface-visibility: hidden;
-    transition: transform 10s;
+    transition: transform 4s;
 }
