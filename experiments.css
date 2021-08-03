@@ -1,1 +1,85 @@
-.centered-container{width:inherit;height:30em;display:grid;place-items:center;margin-top:1em;margin-bottom:1em}#ff-logo-container{height:inherit;width:max-content;border:1px solid currentColor}#ff-logo{height:100%;width:auto;aspect-ratio:1/1;transition:10s;transition-timing-function:ease-in-out;transform:perspective(100em) translateZ(-500em)}#ff-logo-container:hover>#ff-logo{transform:perspective(100em) translateZ(-10em) rotate3d(1, 1, 1, 1110deg)}/*# sourceMappingURL=experiments.css.map */
+.centered-container {
+  width: inherit;
+  height: 30em;
+  display: grid;
+  place-items: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.experiment-box {
+  height: inherit;
+  width: max-content;
+  border: 1px solid currentColor;
+}
+
+#ff-logo {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1/1;
+  transition: 10s;
+  transition-timing-function: ease-in-out;
+  transform: perspective(100em) translateZ(-500em);
+}
+
+#ff-logo-container:hover > #ff-logo {
+  transform: perspective(100em) translateZ(-10em) rotate3d(1, 1, 1, 1110deg);
+}
+
+#cube {
+  height: 10em;
+  width: 10em;
+  --x: -54;
+  --y: 44;
+  --z: 2;
+  --d: -50deg;
+  --p: 20em;
+}
+
+#cube:hover {
+  --d: 510deg;
+  --x: 45;
+  --y: -100;
+  --z: 74;
+  --p: 80em;
+}
+
+#cube-top-face {
+  background-color: red;
+  transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateY(-5em) rotateX(90deg);
+}
+
+#cube-bottom-face {
+  background-color: yellow;
+  transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateY(5em) rotateX(-90deg);
+}
+
+#cube-front-face {
+  background-color: lime;
+  transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateZ(5em);
+}
+
+#cube-back-face {
+  background-color: cyan;
+  transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateZ(-5em) rotateX(180deg);
+}
+
+#cube-left-face {
+  background-color: blue;
+  transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateX(-5em) rotateY(-90deg);
+}
+
+#cube-right-face {
+  background-color: magenta;
+  transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateX(5em) rotateY(90deg);
+}
+
+.cube-face {
+  position: absolute;
+  height: 10em;
+  width: 10em;
+  backface-visibility: hidden;
+  transition: transform 10s;
+}
+
+/*# sourceMappingURL=experiments.css.map */
