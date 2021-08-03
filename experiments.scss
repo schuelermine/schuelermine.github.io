@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .centered-container {
     width: inherit;
     height: 30em;
@@ -7,7 +9,7 @@
     margin-bottom: 1em;
 }
 
-.experiment-box {
+#ff-logo-container {
     height: inherit;
     width: max-content;
     border: 1px solid currentColor;
@@ -22,13 +24,24 @@
     transform: perspective(100em) translateZ(-500em);
 }
 
-#ff-logo-container:hover > #ff-logo {
+*:hover > #ff-logo {
     transform: perspective(100em) translateZ(-10em) rotate3d(1,1,1,1110deg);
 }
 
 $cube-edge-length: 10em;
+$cube-translation: math.div($cube-edge-length, 2);
+
+#cube-container {
+    height: inherit;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    border: 1px solid currentColor;
+    display: grid;
+    place-items: center;
+}
 
 #cube {
+    padding: 5em;
     height: $cube-edge-length;
     width: $cube-edge-length;
     --x: -54;
@@ -38,7 +51,7 @@ $cube-edge-length: 10em;
     --p: 20em;
 }
 
-#cube:hover {
+*:hover > #cube {
     --d: 510deg;
     --x: 45;
     --y: -100;
@@ -48,27 +61,27 @@ $cube-edge-length: 10em;
 
 #cube-top-face {
     background-color: red;
-    transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateY(-$cube-edge-length / 2) rotateX(90deg);
+    transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateY(-$cube-translation) rotateX(90deg);
 }
 #cube-bottom-face {
     background-color: yellow;
-    transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateY($cube-edge-length / 2) rotateX(-90deg);
+    transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateY($cube-translation) rotateX(-90deg);
 }
 #cube-front-face {
     background-color: lime;
-    transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateZ($cube-edge-length / 2);
+    transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateZ($cube-translation);
 }
 #cube-back-face {
     background-color: cyan;
-    transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateZ(-$cube-edge-length / 2) rotateX(180deg);
+    transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateZ(-$cube-translation) rotateX(180deg);
 }
 #cube-left-face {
     background-color: blue;
-    transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateX(-$cube-edge-length / 2) rotateY(-90deg);
+    transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateX(-$cube-translation) rotateY(-90deg);
 }
 #cube-right-face {
     background-color: magenta;
-    transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateX($cube-edge-length / 2) rotateY(90deg);
+    transform: perspective(var(--p)) rotate3d(var(--x), var(--y), var(--z), var(--d)) translateX($cube-translation) rotateY(90deg);
 }
 .cube-face {
     position: absolute;

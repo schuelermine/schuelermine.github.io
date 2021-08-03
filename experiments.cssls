@@ -26,15 +26,6 @@
   transform: perspective(100em) translateZ(-10em) rotate3d(1, 1, 1, 1110deg);
 }
 
-#cube-container {
-  height: inherit;
-  width: auto;
-  aspect-ratio: 1/1;
-  border: 1px solid currentColor;
-  display: grid;
-  place-items: center;
-}
-
 #cube {
   padding: 5em;
   height: 10em;
@@ -92,4 +83,4 @@
   transition: transform 10s;
 }
 
-/*# sourceMappingURL=experiments.css.map */
+/*# sourceMappingURL=experiments.cssls.map */
