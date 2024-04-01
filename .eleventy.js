@@ -29,4 +29,10 @@ module.exports = function (eleventyConfig) {
         }
     });
     eleventyConfig.setLibrary("md", markdownLib);
+    return {
+        dir: {
+            input: "src",
+            output: "docs"
+        }
+    };
 }
