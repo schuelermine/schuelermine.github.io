@@ -28,9 +28,20 @@ body {
     >main {
         grid-area: main;
         display: grid;
-        grid-template-columns: 1fr minmax(80ch, 100ch);
-        grid-template-areas: "outline content";
-        gap: 5ex;
+        gap: 1ex 5ex;
+
+        $layout-cutoff: 70ch;
+
+        @media (width > $layout-cutoff) {
+            grid-template-columns: 1fr minmax(45ch, 90ch);
+            grid-template-areas: "outline content";
+        }
+
+        @media (width <=$layout-cutoff) {
+            grid-template:
+                "outline" auto
+                "content" auto / 1fr;
+        }
 
         >#outline {
             grid-area: outline;

@@ -25,9 +25,18 @@ body > nav > * {
 body > main {
   grid-area: main;
   display: grid;
-  grid-template-columns: 1fr minmax(80ch, 100ch);
-  grid-template-areas: "outline content";
-  gap: 5ex;
+  gap: 1ex 5ex;
+}
+@media (width > 70ch) {
+  body > main {
+    grid-template-columns: 1fr minmax(45ch, 90ch);
+    grid-template-areas: "outline content";
+  }
+}
+@media (width <= 70ch) {
+  body > main {
+    grid-template: "outline" auto "content" auto/1fr;
+  }
 }
 body > main > #outline {
   grid-area: outline;
