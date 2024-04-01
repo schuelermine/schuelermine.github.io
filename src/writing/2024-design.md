@@ -15,6 +15,8 @@ title: Idealistic principles for computer software design
 
 </div>
 
+<article>
+
 # Idealistic principles for computer software design
 
 This is a list of idealistic principles which I dream of being standard in computer software design.
@@ -199,3 +201,5 @@ Everything. That includes:
 - Desktop user interfaces
 - Libraries
 - Program execution models
+
+</article>
