@@ -1,0 +1,48 @@
+:root {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "header" "nav" "main";
+  gap: 2ex;
+}
+body > header {
+  grid-area: header;
+}
+body > nav {
+  grid-area: nav;
+  display: flex;
+}
+body > nav > * {
+  display: block;
+  margin: 0 2em;
+}
+body > main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr minmax(80ch, 100ch);
+  grid-template-areas: "outline content";
+  gap: 5ex;
+}
+body > main > #outline {
+  grid-area: outline;
+}
+body > main > article {
+  grid-area: content;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}

@@ -1,0 +1,14 @@
+---
+layout: layout.html
+---
+{% if header %}
+<header>
+    {{ header | escape }}
+</header>
+{% endif %}
+<nav>
+    <a href="/">Back to homepage</a>
+</nav>
+<main>
+    {{ content }}
+</main>
