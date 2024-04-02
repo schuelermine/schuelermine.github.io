@@ -15,7 +15,7 @@ description: A potential argument for the banning of advertising
 
 </div>
 
-<article>
+<article id="main-content">
 
 I am unsure of the following. It is mostly an idea, and justifications for the idea.
 I am not sure if I want to actually adopt this idea as a goal, and the justifications as beliefs.
@@ -78,7 +78,7 @@ the issue of free speech in this context.
 
 ## How would companies attract customers?
 
-It would still be possible to “get the word out” about a product by listing it somewhere.
+It would still be possible to <q>get the word out</q> about a product by listing it somewhere.
 Customers are still able to issue recommendations and reviews continue to exist.
 Companies can write copy and presentations extolling the virtues of their product,
 it must however be the choice of the consumer to read or watch these.

@@ -17,7 +17,7 @@ description: >
 
 </div>
 
-<article>
+<article id="main-content">
 
 # Idealistic principles for computer software design
 

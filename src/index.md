@@ -13,7 +13,7 @@ description: >
 
 </div>
 
-<article>
+<article id="main-content">
 
 # Anselm Schüler
 

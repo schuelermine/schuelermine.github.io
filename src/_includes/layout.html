@@ -7,9 +7,16 @@
         <meta name="description" content="{{ description | escape }}">
         {% endif %}
         <link rel="stylesheet" href="/style.css">
-        <title>{{ title | escape }}</title>
+        <title>
+            {{ title | escape }}
+        </title>
     </head>
     <body>
+        <header id="skip-to-main-content">
+            <a href="#main-content">
+                Skip to main content (keyboard navigation)
+            </a>
+        </header>
         {{ content }}
     </body>
 </html>

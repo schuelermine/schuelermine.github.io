@@ -10,7 +10,7 @@ There isn’t much here yet
 
 </div>
 
-<article>
+<article id="main-content">
 
 # Opinions
 

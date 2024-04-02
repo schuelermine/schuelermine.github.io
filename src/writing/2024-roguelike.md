@@ -11,7 +11,7 @@ description: A cautious and general and unnecessary definition of roguelike
 
 </div>
 
-<article>
+<article id="main-content">
 
 # My definition of a roguelike
 

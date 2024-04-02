@@ -1,4 +1,20 @@
 @charset "UTF-8";
+:root {
+  display: flex;
+  justify-content: center;
+  font-family: system-ui;
+  color: var(--fg);
+  background-color: var(--bg);
+  accent-color: var(--hi);
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  text-decoration-skip-ink: all;
+}
+:root[lang=en] {
+  quotes: "“" "”" "‘" "’";
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
@@ -44,21 +60,31 @@
     margin: 1.5ex 0;
   }
 }
-li::marker {
-  content: "— ";
+ul,
+ol {
+  list-style-type: "— ";
 }
 
-:root {
-  display: flex;
-  justify-content: center;
-  font-family: sans-serif;
-  color: var(--fg);
-  background-color: var(--bg);
+p {
+  text-indent: 1em;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+article {
+  font-family: "Fira Sans", sans-serif;
 }
 
 body {
@@ -68,17 +94,18 @@ body {
   grid-template-areas: "header" "nav" "main";
 }
 body > header {
-  grid-area: header;
+  margin-left: 2ex;
   margin-bottom: 2ex;
+  grid-area: header;
 }
 body > nav {
-  margin-left: 2ex;
   grid-area: nav;
+  width: max-content;
+  margin-left: 2ex;
+  margin-bottom: 2ex;
   display: grid;
   grid-auto-flow: column;
-  width: max-content;
   gap: 2em;
-  margin-bottom: 2ex;
 }
 body > nav > * {
   display: block;
@@ -87,18 +114,19 @@ body > main {
   grid-area: main;
   display: grid;
 }
-@media (width > 120ch) {
+@media (width > 110ch) {
   body > main {
-    grid-template: "left-comment content padding" auto/1.5fr 4fr 1fr;
+    grid-template: "left-comment content padding" auto/auto auto 10ch;
   }
   body > main > #left-comment {
-    max-width: 40ch;
+    min-width: 20ch;
+    max-width: 30ch;
     margin-right: 5ex;
   }
 }
-@media (width <= 120ch) {
+@media (width <= 110ch) {
   body > main {
-    grid-template: "content" auto/minmax(auto, 80ch);
+    grid-template: "content" auto/auto;
   }
   body > main > #left-comment {
     display: none;
@@ -109,9 +137,12 @@ body > main > #left-comment {
 }
 body > main > article {
   grid-area: content;
-  max-width: 100ch;
+  max-width: clamp(80ch, 45dvw, 110ch);
 }
 body > main > article a {
   color: var(--hi);
   text-decoration: underline currentColor;
+}
+body > main > article a:hover {
+  text-underline-offset: 2px;
 }

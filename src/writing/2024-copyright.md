@@ -13,7 +13,7 @@ description: >
 
 </div>
 
-<article>
+<article id="main-content">
 
 # Reasons for the limitation of copyright and patents
 
@@ -23,7 +23,7 @@ It is not to be understood as arguing against all kinds of copyright, even assum
 that we do move away from market capitalism as-is.
 
 The proliferation of expansive copyright terms and their enforcement and surrounding discourse,
-including particularly the use of the term “intellectual property” to encompass it and, among others, patents
+including particularly the use of the term <q>intellectual property</q> to encompass it and, among others, patents
 has led to a fundamental misunderstanding about the nature of copyright and patents.
 
 Copyright and patents are in some sense utilitarian laws. Their goal is not to protect natural rights,
