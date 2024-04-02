@@ -3,7 +3,7 @@ layout: writing-index.html
 title: Document index
 ---
 
-<div id="outline">
+<div id="left-comment">
 
 There isn’t much here yet
 

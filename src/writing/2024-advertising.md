@@ -3,7 +3,7 @@ layout: blogpost.html
 title: Advertising need not exist
 ---
 
-<div id="outline">
+<div id="left-comment">
 
 - [Arguments this document does not make](#arguments-this-document-does-not-make)
 - [What is advertising](#what-is-advertising)

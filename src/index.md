@@ -3,7 +3,7 @@ layout: homepage.html
 title: Anselm Schüler’s home page
 ---
 
-<div id="outline">
+<div id="left-comment">
 
 - [Online presence](#online-presence)
 - [Content on this site](#content-on-this-site)

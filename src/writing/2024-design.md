@@ -3,7 +3,7 @@ layout: blogpost.html
 title: Idealistic principles for computer software design
 ---
 
-<div id="outline">
+<div id="left-comment">
 
 - [Enforce and maintain the structure of data](#enforce-and-maintain-the-structure-of-data)
 - [Be generic everywhere else](#be-generic-everywhere-else)
@@ -143,6 +143,13 @@ Either we must write code as close to the raw data as tenable,
 or we must raise our abstraction floor ever higher. The former is untenable for many projects.
 
 ## Putting it all together
+
+<blockquote>
+
+**Note:** This part of the document is the weakest, in my view.
+I should’ve done a better job at articulating this.
+
+</blockqoute>
 
 The ideal system must reject all legacy. We must stand bold in the face of adversity and tolerate barriers in
 backward compatibility, except as necessary for giving the user control.

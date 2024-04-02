@@ -7,12 +7,12 @@ const markdownItOptions = {
     html: true
 };
 
-const slugifyOptions = {
+const slugOptions = {
     lowercase: true,
 };
 
 const markdownItAnchorOptions = {
-    slugify: it => slug(it, slugifyOptions)
+    slugify: it => slug(it, slugOptions)
 };
 
 const markdownLib = markdownIt(markdownItOptions).use(markdownItAnchor, markdownItAnchorOptions);

@@ -21,7 +21,7 @@
     :root {
         color-scheme: light;
         --fg: #000;
-        --bg: #ddd;
+        --bg: #eee;
         --hi: #a00;
 
         @media (prefers-contrast: more) {
@@ -92,28 +92,24 @@ body {
 
         @media (width > $layout-cutoff) {
             grid-template:
-                "outline content padding" auto / 1.5fr 4fr 1fr;
+                "left-comment content padding" auto / 1.5fr 4fr 1fr;
 
-            >#outline {
+            >#left-comment {
                 max-width: 40ch;
-                padding-right: 2.5ex;
-                margin-right: 2.5ex;
-                border-right: var(--fg) solid 1px;
+                margin-right: 5ex;
             }
         }
 
         @media (width <=$layout-cutoff) {
-            grid-template: "outline" auto "content" auto / minmax(auto, 80ch);
+            grid-template: "left-comment" auto "content" auto / minmax(auto, 80ch);
 
-            >#outline {
-                max-height: 7em;
-                overflow-y: scroll;
-                border-bottom: var(--fg) solid 1px;
+            >#left-comment {
+                display: none;
             }
         }
 
-        >#outline {
-            grid-area: outline;
+        >#left-comment {
+            grid-area: left-comment;
         }
 
         >article {

@@ -3,7 +3,7 @@ layout: blogpost.html
 title: My definition of a roguelike
 ---
 
-<div id="outline">
+<div id="left-comment">
 
 - [Being mechanically roguelike](#being-mechanically-roguelike)
 - [Being prototypically roguelike](#being-prototypically-roguelike)

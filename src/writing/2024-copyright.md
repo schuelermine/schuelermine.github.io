@@ -3,7 +3,7 @@ layout: blogpost.html
 title: Reasons for the limitation of copyright and patents
 ---
 
-<div id="outline">
+<div id="left-comment">
 
 - [Reasons for the limitation of copyright and patents](#reasons-for-the-limitation-of-copyright-and-patents)
 - [Suggestions for improving copyright and patents](#suggestions-for-improving-copyright-and-patents)

@@ -23,7 +23,7 @@
   :root {
     color-scheme: light;
     --fg: #000;
-    --bg: #ddd;
+    --bg: #eee;
     --hi: #a00;
   }
 }
@@ -89,27 +89,23 @@ body > main {
 }
 @media (width > 120ch) {
   body > main {
-    grid-template: "outline content padding" auto/1.5fr 4fr 1fr;
+    grid-template: "left-comment content padding" auto/1.5fr 4fr 1fr;
   }
-  body > main > #outline {
+  body > main > #left-comment {
     max-width: 40ch;
-    padding-right: 2.5ex;
-    margin-right: 2.5ex;
-    border-right: var(--fg) solid 1px;
+    margin-right: 5ex;
   }
 }
 @media (width <= 120ch) {
   body > main {
-    grid-template: "outline" auto "content" auto/minmax(auto, 80ch);
+    grid-template: "left-comment" auto "content" auto/minmax(auto, 80ch);
   }
-  body > main > #outline {
-    max-height: 7em;
-    overflow-y: scroll;
-    border-bottom: var(--fg) solid 1px;
+  body > main > #left-comment {
+    display: none;
   }
 }
-body > main > #outline {
-  grid-area: outline;
+body > main > #left-comment {
+  grid-area: left-comment;
 }
 body > main > article {
   grid-area: content;
