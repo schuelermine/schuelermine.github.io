@@ -17,7 +17,8 @@ title: My definition of a roguelike
 I consider whether a game is roguelike on two axes:
 
 - How prototypically roguelike is it?  
-  This asks how many characteristic incidental features of _Rogue_ the game shares.  
+  This asks how many characteristic incidental features of
+  [_Rogue_](https://en.wikipedia.org/wiki/Rogue_(video_game)) the game shares.  
   A game can only be prototypically roguelike to some degree—there are no exclusion criteria.
 - How mechanically roguelike is it?  
   This asks how many characteristic features that nowadays define the genre the game has.  

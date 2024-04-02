@@ -101,7 +101,7 @@ body {
         }
 
         @media (width <=$layout-cutoff) {
-            grid-template: "left-comment" auto "content" auto / minmax(auto, 80ch);
+            grid-template: "content" auto / minmax(auto, 80ch);
 
             >#left-comment {
                 display: none;

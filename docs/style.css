@@ -98,7 +98,7 @@ body > main {
 }
 @media (width <= 120ch) {
   body > main {
-    grid-template: "left-comment" auto "content" auto/minmax(auto, 80ch);
+    grid-template: "content" auto/minmax(auto, 80ch);
   }
   body > main > #left-comment {
     display: none;
