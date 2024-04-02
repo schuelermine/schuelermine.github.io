@@ -2,17 +2,41 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --fg: white;
+    --fg: #fff;
     --bg: #222;
-    --hi: yellow;
+    --hi: #ff0;
+  }
+}
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+  :root {
+    --bg: #000;
+  }
+}
+@media (prefers-color-scheme: dark) and (prefers-contrast: less) {
+  :root {
+    --fg: #ddd;
+    --bg: #333;
+    --hi: #ee2;
   }
 }
 @media (prefers-color-scheme: light) {
   :root {
     color-scheme: light;
-    --fg: black;
+    --fg: #000;
     --bg: #ddd;
-    --hi: red;
+    --hi: #a00;
+  }
+}
+@media (prefers-color-scheme: light) and (prefers-contrast: more) {
+  :root {
+    --bg: #fff;
+  }
+}
+@media (prefers-color-scheme: light) and (prefers-contrast: less) {
+  :root {
+    --fg: #222;
+    --bg: #ccc;
+    --hi: #911;
   }
 }
 @media (pointer: coarse) {
@@ -80,7 +104,7 @@ body > main {
   }
   body > main > #outline {
     max-height: 7em;
-    overflow: scroll;
+    overflow-y: scroll;
     border-bottom: var(--fg) solid 1px;
   }
 }
@@ -93,4 +117,5 @@ body > main > article {
 }
 body > main > article a {
   color: var(--hi);
+  text-decoration: underline currentColor;
 }

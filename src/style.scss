@@ -1,23 +1,43 @@
 @media (prefers-color-scheme: dark) {
     :root {
         color-scheme: dark;
-        --fg: white;
+        --fg: #fff;
         --bg: #222;
         --hi: #ff0;
+
+        @media (prefers-contrast: more) {
+            --bg: #000;
+        }
+
+        @media (prefers-contrast: less) {
+            --fg: #ddd;
+            --bg: #333;
+            --hi: #ee2;
+        }
     }
 }
 
 @media (prefers-color-scheme: light) {
     :root {
         color-scheme: light;
-        --fg: black;
+        --fg: #000;
         --bg: #ddd;
         --hi: #a00;
+
+        @media (prefers-contrast: more) {
+            --bg: #fff;
+        }
+
+        @media (prefers-contrast: less) {
+            --fg: #222;
+            --bg: #ccc;
+            --hi: #911;
+        }
     }
 }
 
 @media (pointer: coarse) {
-    :is(ul, ol) > li:has(a:only-child) {
+    :is(ul, ol)>li:has(a:only-child) {
         margin: 1.5ex 0;
     }
 }
@@ -87,7 +107,7 @@ body {
 
             >#outline {
                 max-height: 7em;
-                overflow: scroll;
+                overflow-y: scroll;
                 border-bottom: var(--fg) solid 1px;
             }
         }
@@ -102,6 +122,7 @@ body {
 
             a {
                 color: var(--hi);
+                text-decoration: underline currentColor;
             }
         }
     }
