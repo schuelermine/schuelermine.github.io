@@ -149,7 +149,7 @@ or we must raise our abstraction floor ever higher. The former is untenable for 
 **Note:** This part of the document is the weakest, in my view.
 I should’ve done a better job at articulating this.
 
-</blockqoute>
+</blockquote>
 
 The ideal system must reject all legacy. We must stand bold in the face of adversity and tolerate barriers in
 backward compatibility, except as necessary for giving the user control.
