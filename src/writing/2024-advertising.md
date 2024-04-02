@@ -1,6 +1,7 @@
 ---
-layout: blogpost.html
+layout: writing.html
 title: Advertising need not exist
+description: A potential argument for the banning of advertising
 ---
 
 <div id="left-comment">

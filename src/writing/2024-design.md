@@ -1,6 +1,9 @@
 ---
-layout: blogpost.html
+layout: writing.html
 title: Idealistic principles for computer software design
+description: >
+    Highly idealistic principles for novel computre software design,
+    advocating for rebuilding much of our shared infrastructure
 ---
 
 <div id="left-comment">

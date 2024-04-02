@@ -1,6 +1,7 @@
 ---
 layout: writing-index.html
 title: Document index
+description: Writing by Anselm Schüler
 ---
 
 <div id="left-comment">

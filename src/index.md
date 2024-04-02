@@ -1,6 +1,9 @@
 ---
-layout: homepage.html
+layout: root.html
 title: Anselm Schüler’s home page
+description: >
+    Anselm Schüler is a computer programmer
+    and computer science student
 ---
 
 <div id="left-comment">
@@ -14,7 +17,7 @@ title: Anselm Schüler’s home page
 
 # Anselm Schüler
 
-Anselm Schüler is a computer programmer and computer science student at the [Technical University of Berlin](https://www.tu.berlin/).
+{{ description }} at the [Technical University of Berlin](https://www.tu.berlin/).
 
 ## Online presence
 

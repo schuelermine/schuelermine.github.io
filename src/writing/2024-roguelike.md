@@ -1,6 +1,7 @@
 ---
-layout: blogpost.html
+layout: writing.html
 title: My definition of a roguelike
+description: A cautious and general and unnecessary definition of roguelike
 ---
 
 <div id="left-comment">
