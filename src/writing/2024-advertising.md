@@ -5,13 +5,12 @@ title: Advertising need not exist
 
 <div id="outline">
 
-- [Advertising need not exist](#advertising-need-not-exist)
-  - [Arguments this document does not make](#arguments-this-document-does-not-make)
-  - [What is advertising](#what-is-advertising)
-  - [Why is advertising bad](#why-is-advertising-bad)
-  - [Doesn’t this restrict free speech?](#doesnt-this-restrict-free-speech)
-  - [How would companies attract customers?](#how-would-companies-attract-customers)
-  - [Benefits](#benefits)
+- [Arguments this document does not make](#arguments-this-document-does-not-make)
+- [What is advertising](#what-is-advertising)
+- [Why is advertising bad](#why-is-advertising-bad)
+- [Doesn’t this restrict free speech?](#doesnt-this-restrict-free-speech)
+- [How would companies attract customers?](#how-would-companies-attract-customers)
+- [Benefits](#benefits)
 
 </div>
 

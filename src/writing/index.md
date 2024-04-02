@@ -1,11 +1,11 @@
 ---
-layout: documents.html
+layout: writing-index.html
 title: Document index
 ---
 
 <div id="outline">
 
-- [Opinions](#opinions)
+There isn’t much here yet
 
 </div>
 

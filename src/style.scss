@@ -1,46 +1,95 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --fg: white;
+        --bg: #222;
+        --hi: yellow;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color-scheme: light;
+        --fg: black;
+        --bg: #ddd;
+        --hi: red;
+    }
+}
+
+@media (pointer: coarse) {
+    :is(ul, ol) > li:has(a:only-child) {
+        margin: 1.5ex 0;
+    }
+}
+
+li::marker {
+    content: "— ";
+}
+
 :root {
-    margin-top: 5%;
     display: flex;
     justify-content: center;
     font-family: sans-serif;
+    color: var(--fg);
+    background-color: var(--bg);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 body {
+    margin: 3.3em 1em;
     display: grid;
     grid-template-rows: auto auto auto;
     grid-template-areas: "header" "nav" "main";
-    gap: 2ex;
 
     >header {
         grid-area: header;
+        margin-bottom: 2ex;
     }
 
     >nav {
+        margin-left: 2ex;
         grid-area: nav;
-        display: flex;
+        display: grid;
+        grid-auto-flow: column;
+        width: max-content;
+        gap: 2em;
+        margin-bottom: 2ex;
 
         >* {
             display: block;
-            margin: 0 2em;
         }
     }
 
     >main {
         grid-area: main;
         display: grid;
-        gap: 1ex 5ex;
 
-        $layout-cutoff: 70ch;
+        $layout-cutoff: 120ch;
 
         @media (width > $layout-cutoff) {
-            grid-template-columns: 1fr minmax(45ch, 90ch);
-            grid-template-areas: "outline content";
+            grid-template:
+                "outline content padding" auto / 1.5fr 4fr 1fr;
+
+            >#outline {
+                max-width: 40ch;
+                padding-right: 2.5ex;
+                margin-right: 2.5ex;
+                border-right: var(--fg) solid 1px;
+            }
         }
 
         @media (width <=$layout-cutoff) {
-            grid-template:
-                "outline" auto
-                "content" auto / 1fr;
+            grid-template: "outline" auto "content" auto / minmax(auto, 80ch);
+
+            >#outline {
+                max-height: 7em;
+                overflow: scroll;
+                border-bottom: var(--fg) solid 1px;
+            }
         }
 
         >#outline {
@@ -49,18 +98,11 @@ body {
 
         >article {
             grid-area: content;
+            max-width: 100ch;
+
+            a {
+                color: var(--hi);
+            }
         }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        color-scheme: dark;
-    }
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        color-scheme: light;
     }
 }

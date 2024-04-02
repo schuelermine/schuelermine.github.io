@@ -1,7 +1,16 @@
 ---
-layout: standalone.html
+layout: homepage.html
 title: Anselm Schüler’s home page
 ---
+
+<div id="outline">
+
+- [Online presence](#online-presence)
+- [Content on this site](#content-on-this-site)
+
+</div>
+
+<article>
 
 # Anselm Schüler
 
@@ -25,4 +34,6 @@ or on [Matrix as @schuelermine:matrix.org](https://matrix.to/#/@schuelermine:mat
 
 ## Content on this site
 
-I occasionally publish writings on this page, they are listed in the [document index](/documents).
+I occasionally publish writings on this page, they are listed in the [document index](/writing).
+
+</article>

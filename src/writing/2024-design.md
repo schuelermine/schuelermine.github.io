@@ -5,13 +5,12 @@ title: Idealistic principles for computer software design
 
 <div id="outline">
 
-- [Idealistic principles for computer software design](#idealistic-principles-for-computer-software-design)
-  - [Enforce and maintain the structure of data](#enforce-and-maintain-the-structure-of-data)
-  - [Be generic everywhere else](#be-generic-everywhere-else)
-  - [Trust the user and no-one else](#trust-the-user-and-no-one-else)
-  - [A note: Nothing is simple, nothing is direct](#a-note-nothing-is-simple-nothing-is-direct)
-  - [Putting it all together](#putting-it-all-together)
-  - [What needs to be rebuilt](#what-needs-to-be-rebuilt)
+- [Enforce and maintain the structure of data](#enforce-and-maintain-the-structure-of-data)
+- [Be generic everywhere else](#be-generic-everywhere-else)
+- [Trust the user and no-one else](#trust-the-user-and-no-one-else)
+- [A note: Nothing is simple, nothing is direct](#a-note-nothing-is-simple-nothing-is-direct)
+- [Putting it all together](#putting-it-all-together)
+- [What needs to be rebuilt](#what-needs-to-be-rebuilt)
 
 </div>
 

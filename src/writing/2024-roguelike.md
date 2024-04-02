@@ -5,9 +5,8 @@ title: My definition of a roguelike
 
 <div id="outline">
 
-- [My definition of a roguelike](#my-definition-of-a-roguelike)
-  - [Being mechanically roguelike](#being-mechanically-roguelike)
-  - [Being prototypically roguelike](#being-prototypically-roguelike)
+- [Being mechanically roguelike](#being-mechanically-roguelike)
+- [Being prototypically roguelike](#being-prototypically-roguelike)
 
 </div>
 
