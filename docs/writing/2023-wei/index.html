@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="description" content="Criticisms of Web Environment Integrity">
+        
+        <link rel="stylesheet" href="/style.css">
+        <title>
+            WEI criticisms
+        </title>
+    </head>
+    <body>
+        <header id="skip-to-main-content">
+            <a href="#main-content">
+                Skip to main content (keyboard navigation)
+            </a>
+        </header>
+        <nav>
+    <a href="/">Back to homepage</a>
+    <a href="/writing">Back to index</a>
+</nav>
+<main>
+    <div id="left-comment">
+<ul>
+<li><a href="#the-argument-against-vendor-exclusion-is-weak">The argument against vendor exclusion is weak</a></li>
+<li><a href="#web-environment-integrity-is-either-ineffective-invasive-of-privacy-or-denies-users-freedom">Web Environment Integrity is either ineffective, invasive of privacy, or denies user’s freedom</a></li>
+<li><a href="#what-even-is-a-trusted-environment">What even is a trusted environment?</a></li>
+<li><a href="#integrity-attestation-isnt-granular-enough">Integrity attestation isn’t granular enough</a></li>
+<li><a href="#risks-splitting-the-internet">Risks splitting the internet</a></li>
+</ul>
+</div>
+<article>
+<h1 id="wei-criticisms" tabindex="-1">WEI criticisms</h1>
+<p>Here are my criticisms about <a href="https://github.com/RupertBenWiser/Web-Environment-Integrity">Web Environment Integrity</a>.</p>
+<h2 id="the-argument-against-vendor-exclusion-is-weak" tabindex="-1">The argument against vendor exclusion is weak</h2>
+<p>This proposal is fundamentally not vendor neutral. It asks us to accept a classification of vendors into trustworthy or untrustworthy buckets. It is proposed to avoid vendor exclusion by making this API a stochastic API only, but this is a weak guard. Site providers will look at the statistical information gained from this API to make decisions about allowed and disallowed user agents, even if this is not effective. Additionally, it is possible that browser vendors will bow to site providers’ requests to make the API reliable, which would be an easy change, and would put the vendor in better standing with site providers. And one of the stated use cases, preventing cheating in games, seems to require actual realtime action on WEI results, which seems contradictory.</p>
+<h2 id="web-environment-integrity-is-either-ineffective-invasive-of-privacy-or-denies-users-freedom" tabindex="-1">Web Environment Integrity is either ineffective, invasive of privacy, or denies user’s freedom</h2>
+<p>It is naive to assume that attesting freedom from tampering is easy. In fact, nearly every currently feasible method is able to be spoofed. Methods to spoof those methods generally rely on using a higher authority on the computer to trick, modify, or puppeteer the browser, internet connection, or other software. The obvious and terrifying solution to this is to go up the chain of authority and place your root of trust higher and higher. No longer will the browser validate itself, but the OS will. Ultimately this process will lead to compromising the user’s freedom to control their device, with certificates controlling everything from web browsing over updates to debugging. Of course this is a <q>soft</q> form of this dystopia, as any violation of these might not necessarily be impossible, but merely immediately noticed and leading to exclusion from some applications, but it could easily evolve into the hard version.</p>
+<p>There is a glimmer of hope here—what if we used heuristics and user data to, well, guess, if a user is a human, an environment tampered with, etc.? Unfortunately, this, too, has problems—it is at least somewhat ineffective and/or compromises the user’s privacy or relegates those who are privacy conscious to being less trusted. Because this needs data, the more data there is, the more trusted an environment can be. Most data is somehow in violation of the source’s privacy. It seems to me it would take exceptional cleverness to construct a hashing or encryption scheme that protects user privacy and allows reasonable inference over behavior, but this proposals takes no steps towards this.</p>
+<p>It is possible that there exists a <q>sweet spot</q> in between these extremes that balances the interests of the parties, but it is difficult to determine it since every party has different ideas of each party’s weight. I contend the sweet spot, if this is to be implemented, is squarely in the ineffectiveness extreme. However, the mere possibility of sliding into any of these extremes makes this idea unworkable.</p>
+<h2 id="what-even-is-a-trusted-environment" tabindex="-1">What even is a trusted environment?</h2>
+<p>Many things can be said to be intentional or allowed, while others may claim they are problematic and circumventing. It is not at all trivial to define a baseline environment that even can be trusted. For instance, it is debate worthy whether blocking or auto clicking advertisements is problematic or just a freedom users have. This proposal makes no attempt to resolve this issue except insofar as it presupposes the issue has already been solved in favor of advertisers.</p>
+<p>This is supposed to be solved by the attesters deciding what to certify, the websites deciding what to trust, and the browsers deciding what to use, but it seems to me that it would be beneficial to actually state some useful groundwork, otherwise there will be wildly varying ideas about this and actually relying on WEI would be a mess.</p>
+<p>The proposal states that extension functionality should not be inhibited by this, but this either makes the whole thing ineffective or is a lie. In the end, whether extensions will be inhibited by this is up to the browsers, sites, and attesters. It is also sometimes difficult to determine if an extension is more of a plugin or more of a cosmetic extension, as has been seen in Firefox’s transition to WebExtensions and Chrome’s transition to Manifest V3.</p>
+<h2 id="integrity-attestation-isnt-granular-enough" tabindex="-1">Integrity attestation isn’t granular enough</h2>
+<p>Many sites may wish to only attest a few facts about a browser, finding many others, such as non scripting extensions, irrelevant, but with the spec as-is it is impossible to specify this. The content binding could be used to communicate with the attester but this would either require choice of attester or standards on the attesters and the content binding format.</p>
+<p>Furthermore, browsers offer many diverse capabilities which users usually don’t make full use of. As such it is possible that a browser may be deemed generally untrustworthy because it allows certain modifications to be made without circumvention of anything. For instance, a browser may have the capability to run an advert auto clicker plugin, but this functionality is used by very few people. It would need to be proved to the attester that this functionality is not enabled, but this is even more difficult than proving that the environment hasn’t been tampered with. It would also require the browser and the attester to anticipate website requirements.</p>
+<h2 id="risks-splitting-the-internet" tabindex="-1">Risks splitting the internet</h2>
+<p>To some extent, DRM plugins like Widevine already make this a reality, but this proposal could further entrench the divide between controlled services and mere informational websites. Some browsers will not be able to adopt WEI and will therefore eventually be relegated to only one part of this internet, forcing users to use multiple browsers for what is supposedly one internet.</p>
+</article>
+
+</main>
+
+    </body>
+</html>
