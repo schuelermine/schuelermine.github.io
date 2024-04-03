@@ -6,7 +6,7 @@ description: Complete nonsense
 
 <article>
 
-# I wrote nonsense
+# Some garbage I wrote
 
 I recently decided to just write complete nonsense for the heck of it. Here’s the result.
 

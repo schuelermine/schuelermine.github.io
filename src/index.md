@@ -8,8 +8,8 @@ description: >
 
 <div id="left-comment">
 
-- [Online presence](#online-presence)
 - [Content on this site](#content-on-this-site)
+- [Find me elsewhere online](#find-me-elsewhere-online)
 
 </div>
 
@@ -17,9 +17,14 @@ description: >
 
 # Anselm Schüler
 
-{{ description }} at the [Technical University of Berlin](https://www.tu.berlin/).
+Anselm Schüler is a computer programmer and computer science
+student at the [Technical University of Berlin](https://www.tu.berlin/).
 
-## Online presence
+## Content on this site
+
+I occasionally publish writing on this page, it is listed in the [**document index**](/writing).
+
+## Find me elsewhere online
 
 ### Code
 
@@ -34,9 +39,5 @@ I am on [Mastodon as @anselmschueler@ieji.de](https://ieji.de/@anselmschueler).
 
 You can contact me by [email to mail@anselmschueler.com](mailto:mail@anselmschueler.com)
 or on [Matrix as @schuelermine:matrix.org](https://matrix.to/#/@schuelermine:matrix.org).
-
-## Content on this site
-
-I occasionally publish writings on this page, they are listed in the [document index](/writing).
 
 </article>

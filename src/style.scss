@@ -16,7 +16,7 @@
         color-scheme: dark;
         --fg: #fff;
         --bg: #222;
-        --hi: #ff0;
+        --hi: #ee0;
 
         @media (prefers-contrast: more) {
             --bg: #000;
@@ -25,7 +25,7 @@
         @media (prefers-contrast: less) {
             --fg: #ddd;
             --bg: #333;
-            --hi: #ee2;
+            --hi: #dd2;
         }
     }
 }

@@ -17,7 +17,7 @@
     color-scheme: dark;
     --fg: #fff;
     --bg: #222;
-    --hi: #ff0;
+    --hi: #ee0;
   }
 }
 @media (prefers-color-scheme: dark) and (prefers-contrast: more) {
@@ -29,7 +29,7 @@
   :root {
     --fg: #ddd;
     --bg: #333;
-    --hi: #ee2;
+    --hi: #dd2;
   }
 }
 @media (prefers-color-scheme: light) {

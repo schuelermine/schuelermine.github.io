@@ -13,10 +13,12 @@ description: Writing by Anselm Schüler
 
 <article id="main-content">
 
+# Document index
+
 I don’t guarantee that the order of these reflects any temporal ordering.  
 I don’t even remember when I wrote most of these.
 
-# 2024
+## 2024
 
 [Advertising need not exist](/writing/2024-advertising)  
 In which I argue that advertising ought to be abolished (this is a tentative opinion)
@@ -36,7 +38,7 @@ and how we could build a system where these are central tenets
 [Reasons for the limitation of copyright and patents](/writing/2024-copyright)  
 In which I argue that copyright and patents are to be severely curtailed
 
-# 2023
+## 2023
 
 [WEI Criticisms](/writing/2023-wei)  
 It was already a dead horse when I wrote this, but Web Environment Integrity is awful
