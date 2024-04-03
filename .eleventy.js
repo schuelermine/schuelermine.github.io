@@ -18,7 +18,7 @@ const markdownItAnchorOptions = {
 const markdownLib = markdownIt(markdownItOptions).use(markdownItAnchor, markdownItAnchorOptions);
 
 module.exports = function (eleventyConfig) {
-    eleventyConfig.addPassthroughCopy("CNAME");
+    eleventyConfig.addPassthroughCopy("src/CNAME");
     eleventyConfig.addPassthroughCopy("src/fonts/*.ttf")
     eleventyConfig.addTemplateFormats("scss");
     eleventyConfig.addExtension("scss", {
