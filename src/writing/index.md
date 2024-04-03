@@ -6,8 +6,11 @@ description: Writing by Anselm Schüler
 
 <div id="left-comment">
 
-- [2024](#2024)
-- [2023](#2023)
+- [Document index](#document-index)
+  - [2024](#2024)
+  - [2023](#2023)
+- [Further assorted nonsense](#further-assorted-nonsense)
+  - [2024](#2024-1)
 
 </div>
 
@@ -26,10 +29,6 @@ In which I argue that advertising ought to be abolished (this is a tentative opi
 [My definition of a roguelike](/writing/2024-roguelike)  
 A highly unnecessary definition of <q>roguelike</q>
 
-I wrote some nonsense during this time, in English and German
-- [Some garbage I wrote](/writing/2024-garbage) (English)
-- [Ein wenig Unsinn](/writing/2024-muell) (German)
-
 [Idealistic principles for computer software design](/writing/2024-design)  
 What I perceive to be vital principles for good software design,
 and how we could build a system where these are central tenets
@@ -42,5 +41,13 @@ In which I argue that copyright and patents are to be severely curtailed
 
 [WEI Criticisms](/writing/2023-wei)  
 It was already a dead horse when I wrote this, but Web Environment Integrity is awful
+
+# Further assorted nonsense
+
+## 2024
+
+I wrote some nonsense during this time, in English and German
+- [Some garbage I wrote](/writing/2024-garbage) (English)
+- [Ein wenig Unsinn](/writing/2024-muell) (German)
 
 </article>
