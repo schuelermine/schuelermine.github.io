@@ -2,7 +2,7 @@
 :root {
   display: flex;
   justify-content: center;
-  font-family: "Fira Sans", sans-serif;
+  font-family: sans-serif;
   color: var(--fg);
   background-color: var(--bg);
   accent-color: var(--hi);
