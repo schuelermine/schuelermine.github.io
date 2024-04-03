@@ -64,9 +64,9 @@ This means that we should enforce that data is accessed correctly via references
 whether statically or dynamically.</p>
 <p>In practice this means RAII, pointer tagging, extra indirection towards managed references,
 or meddling in another process’ data.</p>
-<p>We can extend this principle to larger matters:
-What is a file but unstructured data with a generic interface?
-What is an extension but a poor guarantee of format?
+<p>We can extend this principle to larger matters:<br>
+What is a file but unstructured data with a generic interface?<br>
+What is an extension but a poor guarantee of format?<br>
 What is a path but an unstructured reference?</p>
 <h2 id="be-generic-everywhere-else" tabindex="-1">Be generic everywhere else</h2>
 <p>A corollary of the focus on knowing what your data is is knowing what you don’t know or need to know
@@ -81,11 +81,11 @@ Because of this we should avoid requiring or assuming any global state, since th
 The program must be as specific as it needs to be to be semantically sound, and to work well.
 It is then the job of the supporting system to extend this to be flexible for the user.</p>
 <p>In practice this means virtual file systems, modelling most things as procedure calls, and virtualization.</p>
-<p>We can extend this principle to larger matters:
-What is a file system but global state?
-What is a device driver but global state?
-What is piping but the ability to shim files?
-What is a special file but a wrongfully generic interface?
+<p>We can extend this principle to larger matters:<br>
+What is a file system but global state?<br>
+What is a device driver but global state?<br>
+What is piping but the ability to shim files?<br>
+What is a special file but a wrongfully generic interface?<br>
 What is C but a language without generics?</p>
 <h2 id="trust-the-user-and-no-one-else" tabindex="-1">Trust the user and no-one else</h2>
 <p>The user should have absolute control over their system. Even functionality designed to protect the user

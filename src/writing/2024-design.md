@@ -59,9 +59,9 @@ whether statically or dynamically.
 In practice this means RAII, pointer tagging, extra indirection towards managed references,
 or meddling in another process’ data.
 
-We can extend this principle to larger matters:
-What is a file but unstructured data with a generic interface?
-What is an extension but a poor guarantee of format?
+We can extend this principle to larger matters:  
+What is a file but unstructured data with a generic interface?  
+What is an extension but a poor guarantee of format?  
 What is a path but an unstructured reference?
 
 ## Be generic everywhere else
@@ -82,11 +82,11 @@ It is then the job of the supporting system to extend this to be flexible for th
 
 In practice this means virtual file systems, modelling most things as procedure calls, and virtualization.
 
-We can extend this principle to larger matters:
-What is a file system but global state?
-What is a device driver but global state?
-What is piping but the ability to shim files?
-What is a special file but a wrongfully generic interface?
+We can extend this principle to larger matters:  
+What is a file system but global state?  
+What is a device driver but global state?  
+What is piping but the ability to shim files?  
+What is a special file but a wrongfully generic interface?  
 What is C but a language without generics?
 
 ## Trust the user and no-one else
