@@ -1,5 +1,5 @@
 ---
-layout: root.html
+layout: root-index.html
 title: Anselm Schüler’s home page
 description: >
     Anselm Schüler is a computer programmer
