@@ -8,7 +8,7 @@ description: A potential argument for the banning of advertising
 
 - [Arguments this document does not make](#arguments-this-document-does-not-make)
 - [What is advertising](#what-is-advertising)
-- [Why is advertising bad](#why-is-advertising-bad)
+- [Why is advertising bad?](#why-is-advertising-bad)
 - [Doesn’t this restrict free speech?](#doesnt-this-restrict-free-speech)
 - [How would companies attract customers?](#how-would-companies-attract-customers)
 - [Benefits](#benefits)
@@ -17,7 +17,7 @@ description: A potential argument for the banning of advertising
 
 <article id="main-content">
 
-I am unsure of the following. It is mostly an idea, and justifications for the idea.
+I am unsure of the following. It is mostly an idea, and justifications for the idea.  
 I am not sure if I want to actually adopt this idea as a goal, and the justifications as beliefs.
 
 # Advertising need not exist
@@ -46,10 +46,10 @@ For the purposes of this document, advertising is
 - when a reasonable person uses or beholds the work or product.
 
 This does not include:
-- Works a commercial venture distributes or displays about its own products in its own store, facilities,
+- works a commercial venture distributes or displays about its own products in its own store, facilities,
   or magazines (although the placement of the magazines with undue prominence would be advertising)
-- Informational documents about a product
-- Catalogues, as they give no undue prominence
+- informational documents about a product
+- catalogues, as they give no undue prominence
 
 ## Why is advertising bad?
 

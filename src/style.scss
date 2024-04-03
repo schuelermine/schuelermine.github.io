@@ -9,10 +9,6 @@
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
     text-decoration-skip-ink: all;
-
-    &[lang="en"] {
-        quotes: "“" "”" "‘" "’";
-    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -57,6 +53,14 @@
     :is(ul, ol)>li:has(a:only-child) {
         margin: 1.5ex 0;
     }
+}
+
+[lang="en"] {
+    quotes: "“" "”" "‘" "’";
+}
+
+[lang="de"] {
+    quotes: "„" "“" "‚" "‘";
 }
 
 ul,
