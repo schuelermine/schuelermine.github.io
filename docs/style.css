@@ -90,12 +90,17 @@ body {
   grid-template-rows: auto auto auto;
   grid-template-areas: "header" "nav" "main";
 }
-body > header {
+body > #skip-to-main-content {
   margin-left: 2ex;
   margin-bottom: 2ex;
   grid-area: header;
 }
-body > nav {
+@media print {
+  body > #skip-to-main-content {
+    display: none;
+  }
+}
+body > #main-navigation {
   grid-area: nav;
   width: max-content;
   margin-left: 2ex;
@@ -103,7 +108,7 @@ body > nav {
   display: flex;
   gap: 2em;
 }
-body > nav > * {
+body > #main-navigation > * {
   display: block;
 }
 body > main {

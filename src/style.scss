@@ -98,13 +98,17 @@ body {
     grid-template-rows: auto auto auto;
     grid-template-areas: "header" "nav" "main";
 
-    >header {
+    >#skip-to-main-content {
+        @media print {
+            display: none;
+        }
+
         margin-left: 2ex;
         margin-bottom: 2ex;
         grid-area: header;
     }
 
-    >nav {
+    >#main-navigation {
         grid-area: nav;
         width: max-content;
         margin-left: 2ex;
