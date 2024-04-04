@@ -99,10 +99,6 @@ body {
     grid-template-areas: "header" "nav" "main";
 
     >#skip-to-main-content {
-        @media print {
-            display: none;
-        }
-
         margin-left: 2ex;
         margin-bottom: 2ex;
         grid-area: header;

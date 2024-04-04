@@ -95,11 +95,6 @@ body > #skip-to-main-content {
   margin-bottom: 2ex;
   grid-area: header;
 }
-@media print {
-  body > #skip-to-main-content {
-    display: none;
-  }
-}
 body > #main-navigation {
   grid-area: nav;
   width: max-content;
