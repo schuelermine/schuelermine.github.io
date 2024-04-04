@@ -82,8 +82,18 @@ h6 {
     text-wrap: balance;
 }
 
+$min-max-content-width: 80ch;
+$max-max-content-width: 110ch;
+$mid-max-content-width: 45dvw;
+$max-content-width: clamp($min-max-content-width, $mid-max-content-width, $max-max-content-width);
+$max-left-comment-width: 30ch;
+$min-left-comment-width: 20ch;
+$empty-width: 10ch;
+$body-horizontal-margin: 1ch;
+$layout-cutoff: $min-left-comment-width + $min-max-content-width + $empty-width + $body-horizontal-margin;
+
 body {
-    margin: 3.3em 1em;
+    margin: 3.3em $body-horizontal-margin;
     display: grid;
     grid-template-rows: auto auto auto;
     grid-template-areas: "header" "nav" "main";
@@ -99,8 +109,7 @@ body {
         width: max-content;
         margin-left: 2ex;
         margin-bottom: 2ex;
-        display: grid;
-        grid-auto-flow: column;
+        display: flex;
         gap: 2em;
 
         >* {
@@ -112,18 +121,9 @@ body {
         grid-area: main;
         display: grid;
 
-        $min-max-content-width: 80ch;
-        $max-max-content-width: 110ch;
-        $mid-max-content-width: 45dvw;
-        $max-content-width: clamp($min-max-content-width, $mid-max-content-width, $max-max-content-width);
-        $max-left-comment-width: 30ch;
-        $min-left-comment-width: 20ch;
-        $padding-width: 10ch;
-        $layout-cutoff: $min-left-comment-width + $min-max-content-width + $padding-width;
-
         @media (width > $layout-cutoff) {
             grid-template:
-                "left-comment content padding" auto / auto auto $padding-width;
+                "left-comment content empty" auto / auto auto $empty-width;
 
             >#left-comment {
                 min-width: $min-left-comment-width;

@@ -85,7 +85,7 @@ h6 {
 }
 
 body {
-  margin: 3.3em 1em;
+  margin: 3.3em 1ch;
   display: grid;
   grid-template-rows: auto auto auto;
   grid-template-areas: "header" "nav" "main";
@@ -100,8 +100,7 @@ body > nav {
   width: max-content;
   margin-left: 2ex;
   margin-bottom: 2ex;
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
   gap: 2em;
 }
 body > nav > * {
@@ -111,9 +110,9 @@ body > main {
   grid-area: main;
   display: grid;
 }
-@media (width > 110ch) {
+@media (width > 111ch) {
   body > main {
-    grid-template: "left-comment content padding" auto/auto auto 10ch;
+    grid-template: "left-comment content empty" auto/auto auto 10ch;
   }
   body > main > #left-comment {
     min-width: 20ch;
@@ -121,7 +120,7 @@ body > main {
     margin-right: 5ex;
   }
 }
-@media (width <= 110ch) {
+@media (width <= 111ch) {
   body > main {
     grid-template: "content" auto/auto;
   }
