@@ -4,7 +4,7 @@ title: Advertising need not exist
 description: A (tentative) argument for banning all advertising
 ---
 
-<div id="left-comment">
+<nav id="left-comment">
 
 - [Arguments this document does not make](#arguments-this-document-does-not-make)
 - [What is advertising](#what-is-advertising)
@@ -13,7 +13,7 @@ description: A (tentative) argument for banning all advertising
 - [How would companies attract customers?](#how-would-companies-attract-customers)
 - [Benefits](#benefits)
 
-</div>
+</nav>
 
 <article id="main-content">
 

@@ -6,12 +6,12 @@ description: >
     and computer science student
 ---
 
-<div id="left-comment">
+<nav id="left-comment">
 
 - [Content on this site](#content-on-this-site)
 - [Find me elsewhere online](#find-me-elsewhere-online)
 
-</div>
+</nav>
 
 <article id="main-content">
 

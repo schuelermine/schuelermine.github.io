@@ -57,6 +57,9 @@
     margin: 1.5ex 0;
   }
 }
+@page {
+  margin: 5em 1em;
+}
 [lang=en] {
   quotes: "“" "”" "‘" "’";
 }
@@ -85,18 +88,28 @@ h6 {
 }
 
 body {
-  margin: 3.3em 1ch;
   display: grid;
-  grid-template-rows: auto auto auto;
-  grid-template-areas: "header" "nav" "main";
+  margin: 3.3em 1ch;
+  grid-template: "skip-to-main-content" "navigation" "main-content" auto/auto auto auto;
+}
+@media print {
+  body {
+    display: block;
+    margin: 0;
+  }
 }
 body > #skip-to-main-content {
   margin-left: 2ex;
   margin-bottom: 2ex;
-  grid-area: header;
+  grid-area: skip-to-main-content;
+}
+@media print {
+  body > #skip-to-main-content {
+    display: none;
+  }
 }
 body > #main-navigation {
-  grid-area: nav;
+  grid-area: navigation;
   width: max-content;
   margin-left: 2ex;
   margin-bottom: 2ex;
@@ -106,15 +119,26 @@ body > #main-navigation {
 body > #main-navigation > * {
   display: block;
 }
+@media print {
+  body > #main-navigation {
+    display: none;
+  }
+}
 body > main {
-  grid-area: main;
+  grid-area: main-content;
   display: grid;
+}
+@media print {
+  body > main {
+    display: block;
+  }
 }
 @media (width > 111ch) {
   body > main {
     grid-template: "left-comment content empty" auto/auto auto 10ch;
   }
   body > main > #left-comment {
+    grid-area: left-comment;
     min-width: 20ch;
     max-width: 30ch;
     margin-right: 5ex;
@@ -127,9 +151,6 @@ body > main {
   body > main > #left-comment {
     display: none;
   }
-}
-body > main > #left-comment {
-  grid-area: left-comment;
 }
 body > main > article {
   grid-area: content;

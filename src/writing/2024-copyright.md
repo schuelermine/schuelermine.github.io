@@ -6,12 +6,12 @@ description: >
   They must be curtailed significantly.
 ---
 
-<div id="left-comment">
+<nav id="left-comment">
 
 - [Reasons for the limitation of copyright and patents](#reasons-for-the-limitation-of-copyright-and-patents)
 - [Suggestions for improving copyright and patents](#suggestions-for-improving-copyright-and-patents)
 
-</div>
+</nav>
 
 <article id="main-content">
 

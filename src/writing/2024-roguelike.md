@@ -4,12 +4,12 @@ title: My definition of a roguelike
 description: A cautious and general and unnecessary definition of roguelike
 ---
 
-<div id="left-comment">
+<nav id="left-comment">
 
 - [Being mechanically roguelike](#being-mechanically-roguelike)
 - [Being prototypically roguelike](#being-prototypically-roguelike)
 
-</div>
+</nav>
 
 <article id="main-content">
 

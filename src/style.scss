@@ -55,6 +55,10 @@
     }
 }
 
+@page {
+    margin: 5em 1em;
+}
+
 [lang="en"] {
     quotes: "“" "”" "‘" "’";
 }
@@ -93,19 +97,27 @@ $body-horizontal-margin: 1ch;
 $layout-cutoff: $min-left-comment-width + $min-max-content-width + $empty-width + $body-horizontal-margin;
 
 body {
-    margin: 3.3em $body-horizontal-margin;
     display: grid;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "header" "nav" "main";
+    margin: 3.3em $body-horizontal-margin;
+    grid-template: "skip-to-main-content" "navigation" "main-content" auto / auto auto auto;
+
+    @media print {
+        display: block;
+        margin: 0;
+    }
 
     >#skip-to-main-content {
         margin-left: 2ex;
         margin-bottom: 2ex;
-        grid-area: header;
+        grid-area: skip-to-main-content;
+
+        @media print {
+            display: none;
+        }
     }
 
     >#main-navigation {
-        grid-area: nav;
+        grid-area: navigation;
         width: max-content;
         margin-left: 2ex;
         margin-bottom: 2ex;
@@ -115,17 +127,26 @@ body {
         >* {
             display: block;
         }
+
+        @media print {
+            display: none;
+        }
     }
 
     >main {
-        grid-area: main;
+        grid-area: main-content;
         display: grid;
 
+        @media print {
+            display: block;
+        }
+        
         @media (width > $layout-cutoff) {
             grid-template:
                 "left-comment content empty" auto / auto auto $empty-width;
 
             >#left-comment {
+                grid-area: left-comment;
                 min-width: $min-left-comment-width;
                 max-width: $max-left-comment-width;
                 margin-right: 5ex;
@@ -138,10 +159,6 @@ body {
             >#left-comment {
                 display: none;
             }
-        }
-
-        >#left-comment {
-            grid-area: left-comment;
         }
 
         >article {

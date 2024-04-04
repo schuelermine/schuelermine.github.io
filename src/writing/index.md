@@ -4,7 +4,7 @@ title: Document index
 description: Writing by Anselm Schüler
 ---
 
-<div id="left-comment">
+<nav id="left-comment">
 
 - [Document index](#document-index)
   - [2024](#2024)
@@ -12,7 +12,7 @@ description: Writing by Anselm Schüler
 - [Further assorted nonsense](#further-assorted-nonsense)
   - [2024](#2024-1)
 
-</div>
+</nav>
 
 <article id="main-content">
 

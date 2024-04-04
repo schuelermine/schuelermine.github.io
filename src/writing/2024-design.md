@@ -6,7 +6,7 @@ description: >
     advocating for rebuilding much of our shared infrastructure
 ---
 
-<div id="left-comment">
+<nav id="left-comment">
 
 - [Enforce and maintain the structure of data](#enforce-and-maintain-the-structure-of-data)
 - [Be generic everywhere else](#be-generic-everywhere-else)
@@ -15,7 +15,7 @@ description: >
 - [Putting it all together](#putting-it-all-together)
 - [What needs to be rebuilt](#what-needs-to-be-rebuilt)
 
-</div>
+</nav>
 
 <article id="main-content">
 
