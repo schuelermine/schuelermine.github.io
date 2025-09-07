@@ -145,7 +145,7 @@ body {
         @media print {
             display: block;
         }
-        
+
         @media (width > $layout-cutoff) {
             grid-template:
                 "left-comment content empty" auto / auto auto $empty-width;
