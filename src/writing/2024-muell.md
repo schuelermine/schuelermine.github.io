@@ -4,7 +4,7 @@ title: Ein wenig Unsinn
 description: Eine Menge Müll
 ---
 
-<article lang="de">
+<article lang="de" id="main-content">
 
 # Ein wenig Unsinn
 

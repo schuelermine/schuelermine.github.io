@@ -4,7 +4,7 @@ title: Some garbage I wrote
 description: Complete nonsense
 ---
 
-<article>
+<article id="main-content">
 
 # Some garbage I wrote
 
