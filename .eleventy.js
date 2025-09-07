@@ -1,7 +1,7 @@
 import * as sass from "npm:sass";
 import markdownIt from "npm:markdown-it";
 import markdownItAnchor from "npm:markdown-it-anchor";
-import slug from "npm:slug"
+import slug from "npm:slug";
 
 const markdownItOptions = {
     html: true
