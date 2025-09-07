@@ -1,9 +1,0 @@
-{
-  "name": "schuelermine.github.io",
-  "dependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "markdown-it-anchor": "^8.6.7",
-    "sass": "^1.72.0",
-    "slug": "^9.0.0"
-  }
-}

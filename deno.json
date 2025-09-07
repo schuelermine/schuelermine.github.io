@@ -1,0 +1,8 @@
+{
+    "nodeModulesDir": "auto",
+    "tasks": {
+        "compile": "deno run --allow-sys=cpus --allow-env --allow-read=. --allow-write=docs --no-prompt npm:@11ty/eleventy",
+        "watch": "deno run --allow-sys=cpus --allow-env --allow-read=. --allow-write=docs --no-prompt npm:@11ty/eleventy --watch",
+        "serve": "deno run --allow-sys=cpus --allow-env --allow-read=. --allow-write=docs --allow-net=0.0.0.0:8080 --no-prompt npm:@11ty/eleventy --serve"
+    }
+}

@@ -1,7 +1,7 @@
-const sass = require("sass");;
-const markdownIt = require("markdown-it");
-const markdownItAnchor = require("markdown-it-anchor");
-const slug = require("slug")
+import * as sass from "npm:sass";
+import markdownIt from "npm:markdown-it";
+import markdownItAnchor from "npm:markdown-it-anchor";
+import slug from "npm:slug"
 
 const markdownItOptions = {
     html: true
@@ -17,15 +17,15 @@ const markdownItAnchorOptions = {
 
 const markdownLib = markdownIt(markdownItOptions).use(markdownItAnchor, markdownItAnchorOptions);
 
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src/CNAME");
     eleventyConfig.addPassthroughCopy("src/fonts/*.ttf")
     eleventyConfig.addTemplateFormats("scss");
     eleventyConfig.addExtension("scss", {
         outputFileExtension: "css",
-        compile: async function (inputContent) {
-            let result = sass.compileString(inputContent);
-            return async (data) => {
+        compile: function (inputContent) {
+            const result = sass.compileString(inputContent);
+            return (_) => {
                 return result.css;
             };
         }
