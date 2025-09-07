@@ -21,6 +21,11 @@ description: Writing by Anselm Schüler
 I don’t guarantee that the order of these reflects any temporal ordering.  
 I don’t even remember when I wrote most of these.
 
+## 2025
+
+[What we can do to make MRIs less stressful](/writing/2025-mri)  
+I try to suggest ways to make MRIs less stressful for the patient, based on the two MRIs I had
+
 ## 2024
 
 [Advertising need not exist](/writing/2024-advertising)  
