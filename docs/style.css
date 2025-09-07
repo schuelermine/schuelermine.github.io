@@ -16,7 +16,7 @@
   :root {
     color-scheme: dark;
     --fg: #fff;
-    --bg: #222;
+    --bg: #111;
     --hi: #ee0;
   }
 }
@@ -68,8 +68,7 @@
   quotes: "„" "“" "‚" "‘";
 }
 
-ul,
-ol {
+ul {
   list-style-type: "— ";
 }
 
@@ -85,6 +84,12 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
+}
+
+.background-heading {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: color-mix(in oklab, var(--fg) 70%, var(--bg));
 }
 
 body {
