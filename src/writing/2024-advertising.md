@@ -6,12 +6,12 @@ description: A (tentative) argument for banning all advertising
 
 <nav id="left-comment">
 
-- [Arguments this document does not make](#arguments-this-document-does-not-make)
-- [What is advertising](#what-is-advertising)
-- [Why is advertising bad?](#why-is-advertising-bad)
-- [Doesn’t this restrict free speech?](#doesnt-this-restrict-free-speech)
-- [How would companies attract customers?](#how-would-companies-attract-customers)
-- [Benefits](#benefits)
+1. [Arguments this document does not make](#arguments-this-document-does-not-make)
+2. [What is advertising](#what-is-advertising)
+3. [Why is advertising bad?](#why-is-advertising-bad)
+4. [Doesn’t this restrict free speech?](#doesnt-this-restrict-free-speech)
+5. [How would companies attract customers?](#how-would-companies-attract-customers)
+6. [Benefits](#benefits)
 
 </nav>
 

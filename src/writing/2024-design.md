@@ -8,12 +8,12 @@ description: >
 
 <nav id="left-comment">
 
-- [Enforce and maintain the structure of data](#enforce-and-maintain-the-structure-of-data)
-- [Be generic everywhere else](#be-generic-everywhere-else)
-- [Trust the user and no-one else](#trust-the-user-and-no-one-else)
-- [A note: Nothing is simple, nothing is direct](#a-note-nothing-is-simple-nothing-is-direct)
-- [Putting it all together](#putting-it-all-together)
-- [What needs to be rebuilt](#what-needs-to-be-rebuilt)
+1. [Enforce and maintain the structure of data](#enforce-and-maintain-the-structure-of-data)
+2. [Be generic everywhere else](#be-generic-everywhere-else)
+3. [Trust the user and no-one else](#trust-the-user-and-no-one-else)
+4. [A note: Nothing is simple, nothing is direct](#a-note-nothing-is-simple-nothing-is-direct)
+5. [Putting it all together](#putting-it-all-together)
+6. [What needs to be rebuilt](#what-needs-to-be-rebuilt)
 
 </nav>
 

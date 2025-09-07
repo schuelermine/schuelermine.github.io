@@ -1,7 +1,6 @@
 {
     "[markdown]": {
-        "editor.tabSize": 2,
-        "editor.indentSize": 2,
+        "editor.indentSize": 4,
     },
     "deno.enable": true
 }

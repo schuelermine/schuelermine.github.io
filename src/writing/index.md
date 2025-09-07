@@ -6,11 +6,11 @@ description: Writing by Anselm Schüler
 
 <nav id="left-comment">
 
-- [Document index](#document-index)
-  - [2024](#2024)
-  - [2023](#2023)
-- [Further assorted nonsense](#further-assorted-nonsense)
-  - [2024](#2024-1)
+1. [Document index](#document-index)
+    1. [2024](#2024)
+    2. [2023](#2023)
+2. [Further assorted nonsense](#further-assorted-nonsense)
+    1. [2024](#2024-1)
 
 </nav>
 

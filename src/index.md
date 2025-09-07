@@ -8,8 +8,8 @@ description: >
 
 <nav id="left-comment">
 
-- [Content on this site](#content-on-this-site)
-- [Find me elsewhere online](#find-me-elsewhere-online)
+1. [Content on this site](#content-on-this-site)
+2. [Find me elsewhere online](#find-me-elsewhere-online)
 
 </nav>
 
