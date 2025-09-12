@@ -1,4 +1,4 @@
-import * as sass from "npm:sass";
+import { compileString } from "npm:sass";
 import markdownIt from "npm:markdown-it";
 import markdownItAnchor from "npm:markdown-it-anchor";
 import slug from "npm:slug";
@@ -24,7 +24,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addExtension("scss", {
         outputFileExtension: "css",
         compile: function (inputContent) {
-            const result = sass.compileString(inputContent);
+            const result = compileString(inputContent);
             return (_) => {
                 return result.css;
             };
