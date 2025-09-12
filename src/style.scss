@@ -9,6 +9,7 @@
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
     text-decoration-skip-ink: all;
+    font-size: 1.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -177,6 +178,11 @@ body {
                 &:hover {
                     text-underline-offset: 2px;
                 }
+            }
+
+            .big-name {
+                font-size: 3em;
+                text-align: center;
             }
         }
     }
