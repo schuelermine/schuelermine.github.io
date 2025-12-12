@@ -10,7 +10,7 @@
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
   text-decoration-skip-ink: all;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 @media (prefers-color-scheme: dark) {

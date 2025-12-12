@@ -1,6 +1,7 @@
 {
   "version": "4",
   "specifiers": {
+    "npm:@11ty/eleventy-plugin-syntaxhighlight@*": "5.0.2",
     "npm:@11ty/eleventy@*": "3.1.2_chokidar@3.6.0_posthtml@0.16.6",
     "npm:markdown-it-anchor@*": "9.2.0_@types+markdown-it@14.1.2_markdown-it@14.1.0",
     "npm:markdown-it@*": "14.1.0",
@@ -46,6 +47,12 @@
         "@11ty/eleventy-utils",
         "debug@4.4.1",
         "posthtml-match-helper"
+      ]
+    },
+    "@11ty/eleventy-plugin-syntaxhighlight@5.0.2": {
+      "integrity": "sha512-T6xVVRDJuHlrFMHbUiZkHjj5o1IlLzZW+1IL9eUsyXFU7rY2ztcYhZew/64vmceFFpQwzuSfxQOXxTJYmKkQ+A==",
+      "dependencies": [
+        "prismjs"
       ]
     },
     "@11ty/eleventy-utils@2.0.7": {
@@ -705,6 +712,9 @@
         "posthtml-parser",
         "posthtml-render"
       ]
+    },
+    "prismjs@1.30.0": {
+      "integrity": "sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw=="
     },
     "prr@1.0.1": {
       "integrity": "sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw=="
