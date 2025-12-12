@@ -45,7 +45,7 @@ size_t msg_size_in_fn = foo(msg);
 // These may (and likely will) be different
 ```
 
-Interestingly, there’s a second type in C that acts very similar, but doesn’t cause nearly as many problems. That type is functions.
+Interestingly, there’s a second type in C that acts very similar, but isn't nearly as confusing. That type is functions.
 
 Like arrays, function values immediately coerce to function pointers. Unlike arrays, however, dereferencing a variable that refers to a function, e.g. `*fn`, does allow you to call that function in the same way as the plain symbol would.
 
