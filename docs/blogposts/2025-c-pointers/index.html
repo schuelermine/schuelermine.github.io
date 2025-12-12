@@ -61,17 +61,55 @@
 <p>Fundamentally, an array type is similar to a struct with all members being of the same type. But arrays are often used in a way that structs aren’t. We rarely get the address of the second member of a struct. This is probably because an array with its head shifted remains an array, just of a different size. Since we often ignore, or are ignorant of, the size of an array, this is a natural way to deal with arrays.</p>
 <p>I think it would’ve been much easier to mentally model the situation if C had employed a strict separation of arrays and pointers.</p>
 <p>Arrays should act just like structs. Passing a <code>char[5]</code> to a function should pass the actual five values in the array. It should be like having five <code>char</code> arguments to the function.</p>
+<pre class="language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">compute</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	arr<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">+=</span> arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*=</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> arr<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">-</span> arr<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> result <span class="token operator">=</span> <span class="token function">compute</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// arr is not modified</span></code></pre>
 <p>A pointer to an array would therefore involve only one level of indirection. If you wanted to treat an array like a pointer, you’d have to manually write <code>&amp;arr[0]</code> to get a pointer to the first element of <code>arr</code>.</p>
+<pre class="language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">toggle</span><span class="token punctuation">(</span>bool <span class="token operator">*</span>flag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token operator">*</span>flag <span class="token operator">=</span> <span class="token operator">!</span><span class="token operator">*</span>flag<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+bool arr<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>true<span class="token punctuation">,</span> true<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token function">toggle</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>The most obvious immediate benefit is that this makes the language less confusing to learn. It’s very easy to be confused, as a beginner, by the fact that writing to an array inside a function does change the array outside the function, but the same isn’t true for structs.</p>
 <p>Normally, the presence of references makes this delightfully explicit and easy to understand in C. In fact, C is, in this respect, much simpler and easier to understand than languages like Python, where objects are pointers by default, and C++, where an argument may be passed by reference depending on the function signature without any change to the call site.</p>
 <p>The most immediate downside is that the arrays are being copied all the time. I don’t think that necessarily detracts from the idea. It would just mean that you have to be smart about using it, and it would give the programmer more choices, not less. (Still not as overwhelmingly many choices as something like C++, in case you’re worried about that)</p>
 <p>The compiler could, of course, also choose to implement these arrays using pointers, even selectively, when it suits its purposes. That could leave the more intuitive semantics intact.</p>
-<p>But how would you construct such an array from a pointer? Writing <code>(char[3]){*arr, *(arr + 1), *(arr + 2)}</code> would be very tedious indeed. Luckily, there is prior art for this.</p>
+<p>How would you construct such an array from a pointer? Writing <code>(char[3]){*arr, *(arr + 1), *(arr + 2)}</code> would be very tedious indeed. Luckily, there is prior art for this.</p>
 <p>GDB, the debugger, has an expression system, and it extends C’s syntax with the <code>@</code> operator, used to imbue a memory address with a length to make it an array.</p>
 <p>However, it doesn’t actually take a memory address as its operand. Rather, it acts on expressions like <code>*ptr</code>, which <em>have</em> an address, instead of ones that <em>are</em> an address.</p>
+<pre class="language-none"><code class="language-none">(gdb) list
+1	int main() {
+2	    int arr[4] = {10, 20, 30, 40};
+3	    int *at_ix_1 = arr + 1;
+4	}
+(gdb) break 4
+(gdb) run
+Breakpoint 1, main ()
+4	}
+(gdb) print *at_ix_1
+$1 = 20
+(gdb) print *at_ix_1@1
+$2 = {20}
+(gdb) print *at_ix_1@2
+$3 = {20, 30}
+(gdb) print *(at_ix_1 + 1)@2
+$4 = {30, 40}
+(gdb) print *(at_ix_1 - 1)@4
+$5 = {10, 20, 30, 40}</code></pre>
+<p>(The GDB diagnostic output has been slightly simplified for this example)</p>
 <p>This is analogous to how things like <code>=</code> already work. We can write <code>*ptr = 2</code>, since <code>*ptr</code> is not just a value, but a value with a particular location in memory that can be written to. You cannot write <code>2 = 2</code>. We call these expressions <em>place expressions</em>, or <em>lvalues</em>.</p>
-<p>Similarly, you write <code>*ptr@10</code> to get an array whose first element is <code>*ptr</code> and has 9 elements after that. But you cannot write <code>2@10</code>.</p>
-<p>I think this is a neat way for this operator to work. It could in theory allow for things like</p>
+<p>Similarly, you write <code>*ptr@10</code> to get an array whose first element is <code>*ptr</code> and has 9 elements after that. But you cannot write <code>2@10</code>. You would first have to give the <code>2</code> a place.</p>
+<pre class="language-c"><code class="language-c"><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> x_arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> x@<span class="token number">1</span><span class="token punctuation">;</span></code></pre>
+<p>I think this is a neat way for this operator to work. It could in theory be extended to allow for things like</p>
 <pre class="language-c"><code class="language-c"><span class="token keyword">struct</span> <span class="token class-name">coords_3d</span> <span class="token punctuation">{</span>
 	<span class="token keyword">int</span> x<span class="token punctuation">;</span>
 	<span class="token keyword">int</span> y<span class="token punctuation">;</span>
@@ -81,11 +119,11 @@
 	<span class="token keyword">int</span> x<span class="token punctuation">;</span>
 	<span class="token keyword">int</span> y<span class="token punctuation">;</span>
 <span class="token punctuation">}</span> some_point_projected <span class="token operator">=</span> some_point<span class="token punctuation">.</span>x@<span class="token number">2</span><span class="token punctuation">;</span></code></pre>
-<p>This feels a bit unnatural in this case due to the fact that, unlike arrays, a part of a struct type isn’t really quite as easy to relate to the original struct type. We rarely deal with structs where we know some prefix of them, which might be analogous to an array where we don’t know the size.</p>
+<p>This feels a bit unnatural in this case. I think this might be due to the fact that, unlike with arrays, a part of a struct type isn’t really quite as easy to relate to the original struct type. We rarely deal with structs where we only know some of the fields, which might be analogous to an array where we don’t know the size. Slicing structs, when it occurs, like in the Berkeley socket APIs, is unusual and feels like a bit of a hack.</p>
 <p>The way in which we understand arrays of unknown size as a pointer is, in fact, an example of a broader pattern, where we hide some object we can’t deal with directly behind some opaque handle. Then, we have some way of supplying the missing information to actually operate on the object.</p>
 <p>In a C array, that missing information may be the length, which is then supplied from any number of sources.</p>
-<p>We may store that information alongside the array, either in memory, next to the array, but at a static offset, or alongside the pointer in our local variables.</p>
-<p>Storing it together with the pointer in our local variables is what we call a wide pointer. This is e.g. how <code>std::vector</code> in C++ may be implemented, and it’s what Rust uses automatically to let you take references to unsized types like arrays, <code>&amp;[T]</code>, that automatically store their length.</p>
+<p>We may store that information alongside the array, either in memory, next to the array, but at a static offset, or alongside the pointer in our local variables (or wherever the pointer may reside).</p>
+<p>Storing it together with the pointer is what we call a wide pointer. This is e.g. how <code>std::vector</code> in C++ may be implemented, and it’s what Rust uses automatically to let you take references to unsized types like arrays, <code>&amp;[T]</code>, that automatically store their length.</p>
 <p>We’re effectively already doing this in C whenever we take parameters like <code>size_t len, char *buf</code>.  Taking two arguments is equivalent to taking a two-member struct, and that two-member struct, if we were to extract it as its own type, is a wide pointer.</p>
 <p>Storing that additional data in memory just before the actual data is what e.g. C++ derived classes with virtual methods do. <sup><a href="#footnote-1" id="footnote-1-ref-1">Footnote 1</a></sup></p>
 <p>Getting back to my improved C arrays, you could therefore convert back and forth like this:</p>
@@ -96,7 +134,7 @@
 <pre class="language-c"><code class="language-c"><span class="token keyword">int</span> iota<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">int</span> one_two<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> iota<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>@<span class="token number">2</span><span class="token punctuation">;</span></code></pre>
 <p>Obviously, it would be equally possible to have the syntax <code>ptr@n</code> instead, without needing the dereference. You could still write something like <code>(&amp;iota[2])@3</code>. I think it looks less nice though, and gives you less insight about how place expressions and the like work.</p>
-<p>One problem is that you have to know the length. If you’re just shifting the beginning of the array, you write:</p>
+<p>There’s some rough edges here. If you’re just shifting the beginning of the array, you write:</p>
 <pre class="language-c"><code class="language-c"><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 arr <span class="token operator">=</span> <span class="token operator">&amp;</span>arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>@<span class="token number">1</span><span class="token punctuation">;</span></code></pre>
 <p>But that requires stating the new length explicitly. If you have some kind of operator to get the array size defined like <code>sizeof(arr)/sizeof(T)</code>, you could use that. It’s tedious and ugly nonetheless.</p>
@@ -107,7 +145,7 @@ arr <span class="token operator">=</span> <span class="token operator">&amp;</sp
 <p>Right now, to get nested values from pointers to structs, you write <code>ptr-&gt;foo.bar</code>. With the alternate <code>-&gt;</code>, you’d write <code>ptr-&gt;foo-&gt;bar</code> (for the pointer).</p>
 <p>One might say that <code>ptr-&gt;foo.bar</code> shows that there’s only actually one pointer being followed, and <code>ptr-&gt;foo</code> isn’t itself a pointer. But the alternate syntax would show that too, since you’d write <code>*ptr-&gt;foo-&gt;bar</code> to actually get at the value.</p>
 <p>This is a very ill-substantiated feeling, and possibly entirely wrong, but I have a very slight preference for <code>ptr-&gt;foo-&gt;bar</code>. Working entirely in the realm of pointers is, to me, slightly more reflective of the fact that the compiler only actually has to apply one offset.</p>
-<p>But <code>ptr-&gt;foo.bar</code> is more reflective of the neat interplay between place expressions, the dereference operator, and the address-of operator. Since I praised that so much above, perhaps that feeling is hypocritical.</p>
+<p>But <code>ptr-&gt;foo.bar</code> is more reflective of the neat interplay between place expressions, the dereference operator, and the address-of operator. Since I praised that so much above, perhaps some of my feelings are hypocritical.</p>
 <aside id="footnotes">
 <h2> Footnotes </h2>
 <ol>

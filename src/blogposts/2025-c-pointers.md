@@ -65,7 +65,29 @@ I think it would’ve been much easier to mentally model the situation if C had 
 
 Arrays should act just like structs. Passing a `char[5]` to a function should pass the actual five values in the array. It should be like having five `char` arguments to the function.
 
+```c
+int compute(int arr[3]) {
+	arr[2] += arr[1];
+	arr[1] *= arr[0];
+	arr[0] *= (arr[1] + arr[2]);
+	return arr[0] - arr[2];
+}
+
+int arr[3] = {10, 20, 30};
+int result = compute(arr);
+// arr is not modified
+```
+
 A pointer to an array would therefore involve only one level of indirection. If you wanted to treat an array like a pointer, you’d have to manually write `&arr[0]` to get a pointer to the first element of `arr`.
+
+```c
+void toggle(bool *flag) {
+	*flag = !*flag;
+}
+
+bool arr[2] = {true, true};
+toggle(&arr[1]);
+```
 
 The most obvious immediate benefit is that this makes the language less confusing to learn. It’s very easy to be confused, as a beginner, by the fact that writing to an array inside a function does change the array outside the function, but the same isn’t true for structs.
 
@@ -75,17 +97,46 @@ The most immediate downside is that the arrays are being copied all the time. I 
 
 The compiler could, of course, also choose to implement these arrays using pointers, even selectively, when it suits its purposes. That could leave the more intuitive semantics intact.
 
-But how would you construct such an array from a pointer? Writing `(char[3]){*arr, *(arr + 1), *(arr + 2)}` would be very tedious indeed. Luckily, there is prior art for this.
+How would you construct such an array from a pointer? Writing `(char[3]){*arr, *(arr + 1), *(arr + 2)}` would be very tedious indeed. Luckily, there is prior art for this.
 
 GDB, the debugger, has an expression system, and it extends C’s syntax with the `@` operator, used to imbue a memory address with a length to make it an array.
 
 However, it doesn’t actually take a memory address as its operand. Rather, it acts on expressions like `*ptr`, which _have_ an address, instead of ones that _are_ an address.
 
+```none
+(gdb) list
+1	int main() {
+2	    int arr[4] = {10, 20, 30, 40};
+3	    int *at_ix_1 = arr + 1;
+4	}
+(gdb) break 4
+(gdb) run
+Breakpoint 1, main ()
+4	}
+(gdb) print *at_ix_1
+$1 = 20
+(gdb) print *at_ix_1@1
+$2 = {20}
+(gdb) print *at_ix_1@2
+$3 = {20, 30}
+(gdb) print *(at_ix_1 + 1)@2
+$4 = {30, 40}
+(gdb) print *(at_ix_1 - 1)@4
+$5 = {10, 20, 30, 40}
+```
+
+(The GDB diagnostic output has been slightly simplified for this example)
+
 This is analogous to how things like `=` already work. We can write `*ptr = 2`, since `*ptr` is not just a value, but a value with a particular location in memory that can be written to. You cannot write `2 = 2`. We call these expressions _place expressions_, or _lvalues_.
 
-Similarly, you write `*ptr@10` to get an array whose first element is `*ptr` and has 9 elements after that. But you cannot write `2@10`.
+Similarly, you write `*ptr@10` to get an array whose first element is `*ptr` and has 9 elements after that. But you cannot write `2@10`. You would first have to give the `2` a place.
 
-I think this is a neat way for this operator to work. It could in theory allow for things like
+```c
+int x = 2;
+int x_arr[1] = x@1;
+```
+
+I think this is a neat way for this operator to work. It could in theory be extended to allow for things like
 ```c
 struct coords_3d {
 	int x;
@@ -98,15 +149,15 @@ struct coords_2d {
 } some_point_projected = some_point.x@2;
 ```
 
-This feels a bit unnatural in this case due to the fact that, unlike arrays, a part of a struct type isn’t really quite as easy to relate to the original struct type. We rarely deal with structs where we know some prefix of them, which might be analogous to an array where we don’t know the size.
+This feels a bit unnatural in this case. I think this might be due to the fact that, unlike with arrays, a part of a struct type isn’t really quite as easy to relate to the original struct type. We rarely deal with structs where we only know some of the fields, which might be analogous to an array where we don’t know the size. Slicing structs, when it occurs, like in the Berkeley socket APIs, is unusual and feels like a bit of a hack.
 
 The way in which we understand arrays of unknown size as a pointer is, in fact, an example of a broader pattern, where we hide some object we can’t deal with directly behind some opaque handle. Then, we have some way of supplying the missing information to actually operate on the object.
 
 In a C array, that missing information may be the length, which is then supplied from any number of sources.
 
-We may store that information alongside the array, either in memory, next to the array, but at a static offset, or alongside the pointer in our local variables.
+We may store that information alongside the array, either in memory, next to the array, but at a static offset, or alongside the pointer in our local variables (or wherever the pointer may reside).
 
-Storing it together with the pointer in our local variables is what we call a wide pointer. This is e.g. how `std::vector` in C++ may be implemented, and it’s what Rust uses automatically to let you take references to unsized types like arrays, `&[T]`, that automatically store their length.
+Storing it together with the pointer is what we call a wide pointer. This is e.g. how `std::vector` in C++ may be implemented, and it’s what Rust uses automatically to let you take references to unsized types like arrays, `&[T]`, that automatically store their length.
 
 We’re effectively already doing this in C whenever we take parameters like `size_t len, char *buf`.  Taking two arguments is equivalent to taking a two-member struct, and that two-member struct, if we were to extract it as its own type, is a wide pointer.
 
@@ -127,7 +178,7 @@ int one_two[2] = iota[1]@2;
 
 Obviously, it would be equally possible to have the syntax `ptr@n` instead, without needing the dereference. You could still write something like `(&iota[2])@3`. I think it looks less nice though, and gives you less insight about how place expressions and the like work.
 
-One problem is that you have to know the length. If you’re just shifting the beginning of the array, you write:
+There’s some rough edges here. If you’re just shifting the beginning of the array, you write:
 ```c
 int arr[2] = {10, 20};
 arr = &arr[1]@1;
@@ -149,7 +200,7 @@ One might say that `ptr->foo.bar` shows that there’s only actually one pointer
 
 This is a very ill-substantiated feeling, and possibly entirely wrong, but I have a very slight preference for `ptr->foo->bar`. Working entirely in the realm of pointers is, to me, slightly more reflective of the fact that the compiler only actually has to apply one offset.
 
-But `ptr->foo.bar` is more reflective of the neat interplay between place expressions, the dereference operator, and the address-of operator. Since I praised that so much above, perhaps that feeling is hypocritical.
+But `ptr->foo.bar` is more reflective of the neat interplay between place expressions, the dereference operator, and the address-of operator. Since I praised that so much above, perhaps some of my feelings are hypocritical.
 
 <aside id="footnotes">
 
