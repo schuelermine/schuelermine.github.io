@@ -210,7 +210,7 @@ But `ptr->foo.bar` is more reflective of the neat interplay between place expres
 
 <li id="footnote-1">
 
-See [this video by YouTuber Logan Smith on C++ and Rust's dynamic dispatch](https://www.youtube.com/watch?v=wU8hQvU8aKM) for more details on this topic.
+See [this video by Logan Smith on C++ and Rust's dynamic dispatch on YouTube](https://www.youtube.com/watch?v=wU8hQvU8aKM) for more details on this topic.
 [Go back to text](#footnote-1-ref-1)
 
 </li>
