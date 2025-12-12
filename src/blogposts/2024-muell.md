@@ -1,5 +1,5 @@
 ---
-layout: writing.html
+layout: blogpost.html
 title: Ein wenig Unsinn
 description: Eine Menge Müll
 ---

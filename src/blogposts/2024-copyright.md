@@ -1,5 +1,5 @@
 ---
-layout: writing.html
+layout: blogpost.html
 title: Reasons for the limitation of copyright and patents
 description: >
   Copyright and patents are patently harmful to the intellectual landscape.

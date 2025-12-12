@@ -1,5 +1,5 @@
 ---
-layout: writing.html
+layout: blogpost.html
 title: Advertising need not exist
 description: A (tentative) argument for banning all advertising
 ---

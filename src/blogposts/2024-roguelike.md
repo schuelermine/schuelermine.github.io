@@ -1,5 +1,5 @@
 ---
-layout: writing.html
+layout: blogpost.html
 title: My definition of a roguelike
 description: A cautious and general and unnecessary definition of roguelike
 ---

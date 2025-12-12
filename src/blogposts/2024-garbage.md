@@ -1,5 +1,5 @@
 ---
-layout: writing.html
+layout: blogpost.html
 title: Some garbage I wrote
 description: Complete nonsense
 ---
