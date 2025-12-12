@@ -39,7 +39,7 @@ size_t foo(char buf[]) {
     return sizeof(buf);
 }
 
-char msg[] = "Whereas recognition of the inherent dignity";
+char msg[] = "!!! ???";
 size_t msg_size = sizeof(msg);
 size_t msg_size_in_fn = foo(msg);
 // These may (and likely will) be different
