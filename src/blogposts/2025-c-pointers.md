@@ -35,11 +35,11 @@ size_t ptr_size = sizeof(arr_ptr);
 Additionally, in function signatures, any array type you give to an argument is actually interpreted as a pointer instead. The _n_ denoting the size is completely discarded. That means that, as an exception to the exception, `sizeof arr` in a function with an argument `T arr[]` will _not_ evaluate to `sizeof(T)` × _n_.
 
 ```c
-size_t foo(char buf[]) {
+size_t foo(char buf[8]) {
     return sizeof(buf);
 }
 
-char msg[] = "!!! ???";
+char msg[8] = "!!! ???";
 size_t msg_size = sizeof(msg);
 size_t msg_size_in_fn = foo(msg);
 // These may (and likely will) be different
