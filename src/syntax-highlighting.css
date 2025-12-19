@@ -239,12 +239,12 @@
 
     .token.string,
     .token.attr-value {
-    	color: #e3116c;
+    	color: #9E0000;
     }
 
     .token.punctuation,
     .token.operator {
-    	color: #393A34; /* no highlight */
+    	color: var(--fg); /* no highlight */
     }
 
     .token.entity,
@@ -257,7 +257,7 @@
     .token.property,
     .token.regex,
     .token.inserted {
-    	color: #0090a0;
+    	color: #005A30;
     }
 
     .token.atrule,
