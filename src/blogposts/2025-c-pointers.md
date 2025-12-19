@@ -67,10 +67,10 @@ Arrays should act just like structs. Passing a `char[5]` to a function should pa
 
 ```c
 int compute(int arr[3]) {
-	arr[2] += arr[1];
-	arr[1] *= arr[0];
-	arr[0] *= (arr[1] + arr[2]);
-	return arr[0] - arr[2];
+    arr[2] += arr[1];
+    arr[1] *= arr[0];
+    arr[0] *= (arr[1] + arr[2]);
+    return arr[0] - arr[2];
 }
 
 int arr[3] = {10, 20, 30};
@@ -82,7 +82,7 @@ A pointer to an array would therefore involve only one level of indirection. If 
 
 ```c
 void toggle(bool *flag) {
-	*flag = !*flag;
+    *flag = !*flag;
 }
 
 bool arr[2] = {true, true};
@@ -105,14 +105,14 @@ However, it doesn’t actually take a memory address as its operand. Rather, it 
 
 ```none
 (gdb) list
-1	int main() {
-2	    int arr[4] = {10, 20, 30, 40};
-3	    int *at_ix_1 = arr + 1;
-4	}
+1   int main() {
+2       int arr[4] = {10, 20, 30, 40};
+3       int *at_ix_1 = arr + 1;
+4   }
 (gdb) break 4
 (gdb) run
 Breakpoint 1, main ()
-4	}
+4   }
 (gdb) print *at_ix_1
 $1 = 20
 (gdb) print *at_ix_1@1
@@ -139,13 +139,13 @@ int x_arr[1] = x@1;
 I think this is a neat way for this operator to work. It could in theory be extended to allow for things like
 ```c
 struct coords_3d {
-	int x;
-	int y;
-	int z;
+    int x;
+    int y;
+    int z;
 } some_point;
 struct coords_2d {
-	int x;
-	int y;
+    int x;
+    int y;
 } some_point_projected = some_point.x@2;
 ```
 
