@@ -8,8 +8,8 @@ description: >
 
 <nav id="left-comment">
 
-1. [Reasons for the limitation of copyright and patents](#reasons-for-the-limitation-of-copyright-and-patents)
-2. [Suggestions for improving copyright and patents](#suggestions-for-improving-copyright-and-patents)
+0. [Reasons for the limitation of copyright and patents](#reasons-for-the-limitation-of-copyright-and-patents)
+1. [Suggestions for improving copyright and patents](#suggestions-for-improving-copyright-and-patents)
 
 </nav>
 

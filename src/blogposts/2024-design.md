@@ -8,6 +8,7 @@ description: >
 
 <nav id="left-comment">
 
+0. [Idealistic principles for computer software design](#idealistic-principles-for-computer-software-design)
 1. [Enforce and maintain the structure of data](#enforce-and-maintain-the-structure-of-data)
 2. [Be generic everywhere else](#be-generic-everywhere-else)
 3. [Trust the user and no-one else](#trust-the-user-and-no-one-else)

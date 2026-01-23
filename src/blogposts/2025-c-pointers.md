@@ -6,13 +6,18 @@ description: C array types are weird. In this article I’ll explain what I find
 
 <nav id="left-comment">
 
-_There’s no table of contents for this article, it’s not structured yet._
+0. [C array types are weird](#c-array-types-are-weird)
+1. [Aside: Functions](#aside-functions)
+2. [Arrays by value](#arrays-by-value)
+3. [The `@` operator](#the-at-operator)
+4. [Array length as metadata](#array-length-as-metadata)
+5. [Aside: `->`](#aside-arrow)
 
 </nav>
 
 <article id="main-content">
 
-C array types are weird.
+# C array types are weird
 
 In this article I’ll explain what I find weird about them, what I’d do differently, and ramble on a few related things.
 
@@ -47,6 +52,8 @@ size_t msg_size_in_fn = foo(msg);
 
 Note that you can write `char buf[static 8]` to “enforce” the length, but this just makes it undefined behaviour if you pass a pointer to a shorter array. Similar to `restrict`, all it does is aid the compiler in optimisation.
 
+<h2 class="background-heading" id="aside-functions"> Aside: Functions </h2>
+
 Interestingly, there’s a second type in C that acts very similar, but isn't nearly as confusing. That type is functions.
 
 Like arrays, function values immediately coerce to function pointers. Unlike arrays, however, dereferencing a variable that refers to a function, e.g. `*fn`, does allow you to call that function in the same way as the plain symbol would.
@@ -60,6 +67,8 @@ foo();
 While writing `&arr` for an array does actually give you a pointer-to-array type `T (*)[n]`, `&fn` is completely equivalent to `fn`.
 
 Additionally, writing `T fn()` or `T (*fn)()` in function argument lists is also the same—the second gets automatically corrected to the first, very much like array types being automatically corrected to pointer types.
+
+<h2 class="background-heading" id="arrays-by-value"> Arrays by value </h2>
 
 Fundamentally, an array type is similar to a struct with all members being of the same type. But arrays are often used in a way that structs aren’t. We rarely get the address of the second member of a struct. This is probably because an array with its head shifted remains an array, just of a different size. Since we often ignore, or are ignorant of, the size of an array, this is a natural way to deal with arrays.
 
@@ -98,6 +107,8 @@ Normally, the presence of references makes this delightfully explicit and easy t
 The most immediate downside is that the arrays are being copied all the time. I don’t think that necessarily detracts from the idea. It would just mean that you have to be smart about using it, and it would give the programmer more choices, not less. (Still not as overwhelmingly many choices as something like C++, in case you’re worried about that)
 
 The compiler could, of course, also choose to implement these arrays using pointers, even selectively, when it suits its purposes. That could leave the more intuitive semantics intact.
+
+<h2 class="background-heading" id="the-at-operator"> The <code>@</code> operator </h2>
 
 How would you construct such an array from a pointer? Writing `(char[3]){*arr, *(arr + 1), *(arr + 2)}` would be very tedious indeed. Luckily, there is prior art for this.
 
@@ -153,6 +164,8 @@ struct coords_2d {
 
 This feels a bit unnatural in this case. I think this might be due to the fact that, unlike with arrays, a part of a struct type isn’t really quite as easy to relate to the original struct type. We rarely deal with structs where we only know some of the fields, which might be analogous to an array where we don’t know the size. Slicing structs, when it occurs, like in the Berkeley socket APIs, is unusual and feels like a bit of a hack.
 
+<h2 class="background-heading" id="array-length-as-metadata"> Array length as metadata </h2>
+
 The way in which we understand arrays of unknown size as a pointer is, in fact, an example of a broader pattern, where we hide some object we can’t deal with directly behind some opaque handle. Then, we have some way of supplying the missing information to actually operate on the object.
 
 In a C array, that missing information may be the length, which is then supplied from any number of sources.
@@ -191,6 +204,8 @@ But that requires stating the new length explicitly. If you have some kind of op
 The three obvious solutions are to either allow `arr + 1`, or to automatically infer the length with a special syntax, e.g. `arr[1]@...`, or to make a new custom operator, e.g. `arr +@ 1`.
 
 Since I can’t actually redesign C, and I’m not currently writing a new language, and this probably isn’t that common, I’ll give no specific recommendation.
+
+<h2 class="background-heading" id="aside-arrow"> Aside: <code>-></code> </h2>
 
 As a last note, I’ll mention the `->` operator. That one is similar to the `@` operator in that whether it deals in pointers or place expressions is kind of arbitrary.
 

@@ -20,7 +20,7 @@ description: >
 Anselm Schüler is a computer programmer and computer science
 student at the [Technical University of Berlin](https://www.tu.berlin/).
 
-<span class="big"> [Blog posts](/blogposts) </span>
+<span class="big"> [Read my blog posts!](/blogposts) </span>
 
 <h2 class="background-heading" id="find-me-elsewhere-online"> Find me elsewhere online </h2>
 

@@ -6,6 +6,7 @@ description: A cautious and general and unnecessary definition of roguelike
 
 <nav id="left-comment">
 
+0. [My definition of roguelike](#my-definition-of-a-roguelike)
 1. [Being mechanically roguelike](#being-mechanically-roguelike)
 2. [Being prototypically roguelike](#being-prototypically-roguelike)
 

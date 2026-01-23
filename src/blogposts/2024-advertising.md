@@ -6,6 +6,7 @@ description: A (tentative) argument for banning all advertising
 
 <nav id="left-comment">
 
+0. [Advertising need not exist](#advertising-need-not-exist)
 1. [Arguments this document does not make](#arguments-this-document-does-not-make)
 2. [What is advertising](#what-is-advertising)
 3. [Why is advertising bad?](#why-is-advertising-bad)

@@ -28,10 +28,17 @@
 </nav>
 <main>
     <nav id="left-comment">
-<p><em>There’s no table of contents for this article, it’s not structured yet.</em></p>
+<ol start="0">
+<li><a href="#c-array-types-are-weird">C array types are weird</a></li>
+<li><a href="#aside-functions">Aside: Functions</a></li>
+<li><a href="#arrays-by-value">Arrays by value</a></li>
+<li><a href="#the-at-operator">The <code>@</code> operator</a></li>
+<li><a href="#array-length-as-metadata">Array length as metadata</a></li>
+<li><a href="#aside-arrow">Aside: <code>-&gt;</code></a></li>
+</ol>
 </nav>
 <article id="main-content">
-<p>C array types are weird.</p>
+<h1 id="c-array-types-are-weird" tabindex="-1">C array types are weird</h1>
 <p>In this article I’ll explain what I find weird about them, what I’d do differently, and ramble on a few related things.</p>
 <p>Technically speaking, an array type <code>T[n]</code> (for some <em>n</em>) is distinct from a pointer type <code>T *</code>. A value of type <code>T[n]</code> represents a contiguous sequence of <code>T</code> values in memory, <em>n</em> long.</p>
 <p>But you can’t actually refer to values of type <code>T[n]</code>. Any expression that would be of that type is immediately converted to a pointer, type <code>T *</code>, namely a pointer to the first element.</p>
@@ -51,7 +58,8 @@
 <span class="token class-name">size_t</span> msg_size <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token class-name">size_t</span> msg_size_in_fn <span class="token operator">=</span> <span class="token function">foo</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// These may (and likely will) be different</span></code></pre>
-<p>Note that you can write <code>char buf[static 8]</code> to “enforce” the length, but this just makes it undefined behaviour if you pass a pointer to a shorter array. Similar to <code>restrict</code>, all it does is aid in optimisation.</p>
+<p>Note that you can write <code>char buf[static 8]</code> to “enforce” the length, but this just makes it undefined behaviour if you pass a pointer to a shorter array. Similar to <code>restrict</code>, all it does is aid the compiler in optimisation.</p>
+<h2 class="background-heading" id="aside-functions"> Aside: Functions </h2>
 <p>Interestingly, there’s a second type in C that acts very similar, but isn't nearly as confusing. That type is functions.</p>
 <p>Like arrays, function values immediately coerce to function pointers. Unlike arrays, however, dereferencing a variable that refers to a function, e.g. <code>*fn</code>, does allow you to call that function in the same way as the plain symbol would.</p>
 <pre class="language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
@@ -59,6 +67,7 @@
 <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>While writing <code>&amp;arr</code> for an array does actually give you a pointer-to-array type <code>T (*)[n]</code>, <code>&amp;fn</code> is completely equivalent to <code>fn</code>.</p>
 <p>Additionally, writing <code>T fn()</code> or <code>T (*fn)()</code> in function argument lists is also the same—the second gets automatically corrected to the first, very much like array types being automatically corrected to pointer types.</p>
+<h2 class="background-heading" id="arrays-by-value"> Arrays by value </h2>
 <p>Fundamentally, an array type is similar to a struct with all members being of the same type. But arrays are often used in a way that structs aren’t. We rarely get the address of the second member of a struct. This is probably because an array with its head shifted remains an array, just of a different size. Since we often ignore, or are ignorant of, the size of an array, this is a natural way to deal with arrays.</p>
 <p>I think it would’ve been much easier to mentally model the situation if C had employed a strict separation of arrays and pointers.</p>
 <p>Arrays should act just like structs. Passing a <code>char[5]</code> to a function should pass the actual five values in the array. It should be like having five <code>char</code> arguments to the function.</p>
@@ -83,6 +92,7 @@ bool arr<span class="token punctuation">[</span><span class="token number">2</sp
 <p>Normally, the presence of references makes this delightfully explicit and easy to understand in C. In fact, C is, in this respect, much simpler and easier to understand than languages like Python, where objects are pointers by default, and C++, where an argument may be passed by reference depending on the function signature without any change to the call site.</p>
 <p>The most immediate downside is that the arrays are being copied all the time. I don’t think that necessarily detracts from the idea. It would just mean that you have to be smart about using it, and it would give the programmer more choices, not less. (Still not as overwhelmingly many choices as something like C++, in case you’re worried about that)</p>
 <p>The compiler could, of course, also choose to implement these arrays using pointers, even selectively, when it suits its purposes. That could leave the more intuitive semantics intact.</p>
+<h2 class="background-heading" id="the-at-operator"> The <code>@</code> operator </h2>
 <p>How would you construct such an array from a pointer? Writing <code>(char[3]){*arr, *(arr + 1), *(arr + 2)}</code> would be very tedious indeed. Luckily, there is prior art for this.</p>
 <p>GDB, the debugger, has an expression system, and it extends C’s syntax with the <code>@</code> operator, used to imbue a memory address with a length to make it an array.</p>
 <p>However, it doesn’t actually take a memory address as its operand. Rather, it acts on expressions like <code>*ptr</code>, which <em>have</em> an address, instead of ones that <em>are</em> an address.</p>
@@ -121,6 +131,7 @@ $5 = {10, 20, 30, 40}</code></pre>
     <span class="token keyword">int</span> y<span class="token punctuation">;</span>
 <span class="token punctuation">}</span> some_point_projected <span class="token operator">=</span> some_point<span class="token punctuation">.</span>x@<span class="token number">2</span><span class="token punctuation">;</span></code></pre>
 <p>This feels a bit unnatural in this case. I think this might be due to the fact that, unlike with arrays, a part of a struct type isn’t really quite as easy to relate to the original struct type. We rarely deal with structs where we only know some of the fields, which might be analogous to an array where we don’t know the size. Slicing structs, when it occurs, like in the Berkeley socket APIs, is unusual and feels like a bit of a hack.</p>
+<h2 class="background-heading" id="array-length-as-metadata"> Array length as metadata </h2>
 <p>The way in which we understand arrays of unknown size as a pointer is, in fact, an example of a broader pattern, where we hide some object we can’t deal with directly behind some opaque handle. Then, we have some way of supplying the missing information to actually operate on the object.</p>
 <p>In a C array, that missing information may be the length, which is then supplied from any number of sources.</p>
 <p>We may store that information alongside the array, either in memory, next to the array, but at a static offset, or alongside the pointer in our local variables (or wherever the pointer may reside).</p>
@@ -141,6 +152,7 @@ arr <span class="token operator">=</span> <span class="token operator">&amp;</sp
 <p>But that requires stating the new length explicitly. If you have some kind of operator to get the array size defined like <code>sizeof(arr)/sizeof(T)</code>, you could use that. It’s tedious and ugly nonetheless.</p>
 <p>The three obvious solutions are to either allow <code>arr + 1</code>, or to automatically infer the length with a special syntax, e.g. <code>arr[1]@...</code>, or to make a new custom operator, e.g. <code>arr +@ 1</code>.</p>
 <p>Since I can’t actually redesign C, and I’m not currently writing a new language, and this probably isn’t that common, I’ll give no specific recommendation.</p>
+<h2 class="background-heading" id="aside-arrow"> Aside: <code>-></code> </h2>
 <p>As a last note, I’ll mention the <code>-&gt;</code> operator. That one is similar to the <code>@</code> operator in that whether it deals in pointers or place expressions is kind of arbitrary.</p>
 <p>Right now, the expression <code>ptr-&gt;foo</code> denotes <em>the value</em> <code>(*ptr).foo</code>, with a dereference included for free. To get the address, you write <code>&amp;ptr-&gt;foo</code>. But it could’ve just as easily been defined as <code>&amp;(*ptr).foo</code>. Then, to get the value, you’d write <code>*ptr-&gt;foo</code>.</p>
 <p>Right now, to get nested values from pointers to structs, you write <code>ptr-&gt;foo.bar</code>. With the alternate <code>-&gt;</code>, you’d write <code>ptr-&gt;foo-&gt;bar</code> (for the pointer).</p>
