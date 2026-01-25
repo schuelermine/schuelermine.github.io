@@ -25,7 +25,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --fg: #fff;
+    --fg: #eee;
     --bg: #111;
     --hi: #ee0;
   }
@@ -45,7 +45,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     color-scheme: light;
-    --fg: #000;
+    --fg: #111;
     --bg: #eee;
     --hi: #a00;
   }
@@ -99,7 +99,7 @@ h6 {
 .background-heading {
   font-size: 1.1rem;
   font-style: italic;
-  color: color-mix(in oklab, var(--fg) 70%, var(--bg));
+  color: light-dark(#555, #aaa);
 }
 
 .big {
