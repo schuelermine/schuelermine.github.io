@@ -44,7 +44,7 @@ size_t foo(char buf[6]) {
     return sizeof(buf);
 }
 
-char msg[8] = "!! ??";
+char msg[6] = "!! ??";
 size_t msg_size = sizeof(msg);
 size_t msg_size_in_fn = foo(msg);
 // These may (and likely will) be different
