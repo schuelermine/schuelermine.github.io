@@ -27,7 +27,7 @@ But you can’t actually refer to values of type `T[n]`. Any expression that wou
 
 Since the array indexing operator `arr[ix]` actually operates on pointers, acting like `*(arr + ix)`, you can basically treat arrays like pointers.
 
-The only (important) instance where this _doesn’t_ happen is in `sizeof arr`, which returns `sizeof(T)` × _n_.
+An important instance where this _doesn’t_ happen is in `sizeof arr`, which returns `sizeof(T)` × _n_.
 
 ```c
 int arr[3] = {10, 20, 30};
@@ -37,7 +37,7 @@ size_t ptr_size = sizeof(arr_ptr);
 // These may (and likely will) be different
 ```
 
-Additionally, in function signatures, any array type you give to an argument is actually interpreted as a pointer instead. The _n_ denoting the size is completely discarded. That means that, as an exception to the exception, `sizeof arr` in a function with an argument `T arr[]` will _not_ evaluate to `sizeof(T)` × _n_.
+Additionally, in function signatures, any array type you give to an argument is actually interpreted as a pointer instead. The _n_ denoting the size is completely discarded. That means that, as an exception to the exception, `sizeof arr` in a function with an argument `T arr[n]` will _not_ evaluate to `sizeof(T)` × _n_.
 
 ```c
 size_t foo(char buf[6]) {
@@ -52,6 +52,19 @@ size_t msg_size_in_fn = foo(msg);
 
 Note that you can write `char buf[static 8]` to “enforce” the length, but this just makes it undefined behaviour if you pass a pointer to a shorter array. Similar to `restrict`, all it does is aid the compiler in optimisation.
 
+Instead, you can use a pointer to the array as the argument. Instead of decaying to `T *`, a pointer to the first element, you can take a reference at the call site to get `T (*)[n]`. These are effectively the same thing at run-time, but this preserves the length information. It is inconvenient and confusing to write, though.
+
+```c
+size_t foo(char (*buf)[6]) {
+    return sizeof(*buf);
+}
+
+char msg[6] = "?? !!";
+size_t msg_size = sizeof(msg);
+size_t msg_size_in_fn = foo(&msg);
+// These will be the same
+```
+
 <h2 class="background-heading" id="aside-functions"> Aside: Functions </h2>
 
 Interestingly, there’s a second type in C that acts very similar, but isn't nearly as confusing. That type is functions.
@@ -64,7 +77,9 @@ void foo() {}
 foo();
 ```
 
-While writing `&arr` for an array does actually give you a pointer-to-array type `T (*)[n]`, `&fn` is completely equivalent to `fn`.
+While writing `&arr` for an array does actually give you a pointer-to-array type `T (*)[n]`, `&fn` is completely equivalent to `fn`. That’s because an array `arr` doesn’t decay to `&arr`, it decays to `&arr[0]`, whereas a function `fn` does automatically convert to exactly `&fn`.
+
+Note that for both arrays and functions, they don’t decay when given as arguments to the `&` operator, which is why `&arr` isn’t a pointer-to-pointer.
 
 Additionally, writing `T fn()` or `T (*fn)()` in function argument lists is also the same—the second gets automatically corrected to the first, very much like array types being automatically corrected to pointer types.
 
