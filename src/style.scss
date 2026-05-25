@@ -20,8 +20,12 @@
     accent-color: var(--hi);
     box-sizing: border-box;
     scroll-behavior: smooth;
-    scrollbar-gutter: stable;
+    scrollbar-gutter: stable both-edges;
     text-decoration-skip-ink: all;
+
+    @media (width <= 60ch) {
+        font-size: medium;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -108,19 +112,9 @@ h6 {
     font-size: 1.3em;
 }
 
-$min-max-content-width: 80ch;
-$max-max-content-width: 110ch;
-$mid-max-content-width: 45dvw;
-$max-content-width: clamp($min-max-content-width, $mid-max-content-width, $max-max-content-width);
-$max-left-comment-width: 30ch;
-$min-left-comment-width: 20ch;
-$empty-width: 10ch;
-$body-horizontal-margin: 1ch;
-$layout-cutoff: $min-left-comment-width + $min-max-content-width + $empty-width + $body-horizontal-margin;
-
 body {
     display: grid;
-    margin: 3.3em $body-horizontal-margin;
+    margin-top: 3em;
     grid-template: "skip-to-main-content" "navigation" "main-content" auto / auto auto auto;
 
     @media print {
@@ -129,8 +123,6 @@ body {
     }
 
     >#skip-to-main-content {
-        margin-left: 2ex;
-        margin-bottom: 2ex;
         grid-area: skip-to-main-content;
 
         @media print {
@@ -140,9 +132,6 @@ body {
 
     >#main-navigation {
         grid-area: navigation;
-        width: max-content;
-        margin-left: 2ex;
-        margin-bottom: 2ex;
         display: flex;
         gap: 2em;
 
@@ -163,19 +152,17 @@ body {
             display: block;
         }
 
-        @media (width > $layout-cutoff) {
+        @media (width > 120ch) {
             grid-template:
-                "left-comment content empty" auto / auto auto $empty-width;
+                "left-comment content" auto / auto auto;
+            gap: 3em;
 
             >#left-comment {
                 grid-area: left-comment;
-                min-width: $min-left-comment-width;
-                max-width: $max-left-comment-width;
-                margin-right: 5ex;
             }
         }
 
-        @media (width <=$layout-cutoff) {
+        @media (width <= 120ch) {
             grid-template: "content" auto / auto;
 
             >#left-comment {
@@ -183,9 +170,13 @@ body {
             }
         }
 
+        >#left-comment {
+            max-width: 30ch;
+        }
+
         >article {
             grid-area: content;
-            max-width: $max-content-width;
+            max-width: 80ch;
 
             a {
                 color: var(--hi);
@@ -197,7 +188,7 @@ body {
             }
 
             .big-name {
-                font-size: 3em;
+                font-size: 3rem;
                 text-align: center;
             }
         }

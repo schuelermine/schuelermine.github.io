@@ -19,8 +19,13 @@
   accent-color: var(--hi);
   box-sizing: border-box;
   scroll-behavior: smooth;
-  scrollbar-gutter: stable;
+  scrollbar-gutter: stable both-edges;
   text-decoration-skip-ink: all;
+}
+@media (width <= 60ch) {
+  :root {
+    font-size: medium;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -109,7 +114,7 @@ h6 {
 
 body {
   display: grid;
-  margin: 3.3em 1ch;
+  margin-top: 3em;
   grid-template: "skip-to-main-content" "navigation" "main-content" auto/auto auto auto;
 }
 @media print {
@@ -119,8 +124,6 @@ body {
   }
 }
 body > #skip-to-main-content {
-  margin-left: 2ex;
-  margin-bottom: 2ex;
   grid-area: skip-to-main-content;
 }
 @media print {
@@ -130,9 +133,6 @@ body > #skip-to-main-content {
 }
 body > #main-navigation {
   grid-area: navigation;
-  width: max-content;
-  margin-left: 2ex;
-  margin-bottom: 2ex;
   display: flex;
   gap: 2em;
 }
@@ -153,18 +153,16 @@ body > main {
     display: block;
   }
 }
-@media (width > 111ch) {
+@media (width > 120ch) {
   body > main {
-    grid-template: "left-comment content empty" auto/auto auto 10ch;
+    grid-template: "left-comment content" auto/auto auto;
+    gap: 3em;
   }
   body > main > #left-comment {
     grid-area: left-comment;
-    min-width: 20ch;
-    max-width: 30ch;
-    margin-right: 5ex;
   }
 }
-@media (width <= 111ch) {
+@media (width <= 120ch) {
   body > main {
     grid-template: "content" auto/auto;
   }
@@ -172,9 +170,12 @@ body > main {
     display: none;
   }
 }
+body > main > #left-comment {
+  max-width: 30ch;
+}
 body > main > article {
   grid-area: content;
-  max-width: clamp(80ch, 45dvw, 110ch);
+  max-width: 80ch;
 }
 body > main > article a {
   color: var(--hi);
@@ -184,6 +185,6 @@ body > main > article a:hover {
   text-underline-offset: 2px;
 }
 body > main > article .big-name {
-  font-size: 3em;
+  font-size: 3rem;
   text-align: center;
 }
