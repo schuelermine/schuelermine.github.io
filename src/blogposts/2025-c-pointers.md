@@ -81,7 +81,7 @@ While writing `&arr` for an array does actually give you a pointer-to-array type
 
 Note that for both arrays and functions, they don’t decay when given as arguments to the `&` operator, which is why `&arr` isn’t a pointer-to-pointer.
 
-Additionally, writing `T fn()` or `T (*fn)()` in function argument lists is also the same—the second gets automatically corrected to the first, very much like array types being automatically corrected to pointer types.
+Additionally, writing `T fn()` or `T (*fn)()` in function argument lists is also the same—a function type gets automatically “adjusted” to a pointer-to-function type, very much like array types being automatically corrected to pointer types.
 
 <h2 class="background-heading" id="arrays-by-value"> Arrays by value </h2>
 
