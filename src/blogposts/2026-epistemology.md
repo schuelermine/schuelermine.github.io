@@ -11,6 +11,8 @@ description: Personal reflections about why I care about truth
 
 </nav>
 
+<article id="main-content">
+
 # Reflections on epistemology
 
 I have been considering why I believe things about truth, science, beliefs, etc. (epistemology) because of my internal doubts about motivations for my beliefs, tribalism, how to educate, convince, etc., in particular wrt. the rise of fascism, partisan divisions, etc.. That is, questions like: How can I justifiably want others to believe certain things if I’m not sure I’m right? What tactics are appropriate to convince others? Is it ever a good idea to commit to never accepting a particular belief?
@@ -42,3 +44,5 @@ With that in mind, here is my attempt to write down a small set of beliefs that 
 9. I believe people are capable. They are able to bring about things they want.
 
 Therefore, I want people to have true beliefs. Having true beliefs will make them and me more effective in bringing about aspects of the “good” world. Since our conceptions of the “good” world are not fundamentally opposed, this can “improve” the world overall. Further, true beliefs and mastery over the world are good, like happiness is.
+
+</article>
